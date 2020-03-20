@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title></title>
+
+    <meta charset="utf-8">
+
+</head>
+
+ 
+<body>
+
+<form action="/PeekF/index/" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}  
+    name: <input type="text" name="name"><br>
+
+    age: <input type="text" name="age"><br>
+
+{#    birthday: <input type="date" name="birthday"><br>#}
+
+    <input type="submit" value="提交-">
+
+</form>
+<div class="col-lg-12" style="margin-bottom: 20px;">
+                <a class="{% if type == '' %}btn btn-danger{% else %}btn btn-default{% endif %}" href="?type=" role="button">全部</a>
+                <a class="{% if type == 'fl' %}btn btn-danger{% else %}btn btn-default{% endif %}" href="?type=fl" role="button">法律</a>
+                <a class="{% if type == 'xzfg' %}btn btn-danger{% else %}btn btn-default{% endif %}" href="?type=xzfg" role="button">行政法规</a>
+                <a class="{% if type == 'bmgz' %}btn btn-danger{% else %}btn btn-default{% endif %}" href="?type=bmgz" role="button">部门规章</a>
+                <a class="{% if type == 'dfgz' %}btn btn-danger{% else %}btn btn-default{% endif %}" href="?type=dfgz" role="button">地方规章</a>
+</div>
+
+    <br>
+
+    列表：
+
+    <table>
+
+        <tr><td>id</td><td>name</td><td>age</td></tr>
+
+        {% for a in list %}
+
+     <tr>
+
+        <td>{{a.id|safe}}</td><td>{{a.name|safe}}</td><td>{{a.age|safe}}</td>
+
+     </tr>
+
+    {%endfor%}
+
+</table>
+
+</body>
+
+ 
+
+</html>

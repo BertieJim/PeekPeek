@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PeekF: Peek for Wine</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../static/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/bootstrap/navbar.css" rel="stylesheet">
+
+{#    <link href="../static/bootstrap/sticky-footer.css" rel="stylesheet">#}
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PeekF</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/PeekF/index/">简 介</a></li>
+              <li><a href="/PeekF/nav/nav_conf">配 置</a></li>
+
+              <li><a href="#">监 控</a></li>
+              <li><a href="#">对 比</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">可视化 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">调用图</a></li>
+                  <li><a href="#">调用分析</a></li>
+
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">历史记录 <span class="sr-only">(current)</span></a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1 style="color: #555">PeekF : Peek For Wine</h1>
+        <p style="color: #555">PEEKF使用为Wine定制的拦截内核，是Wine环境下API拦截的可视化尝试</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">下载使用说明 &raquo;</a>
+        </p>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-8 blog-main" style="font-size:18px;line-height: 1.2;  color: #3c3c3c;margin-bottom: 60px;">
+        <div class="blog-post">
+        <h2 class="blog-post-title" style="margin-bottom: 5px;font-size: 40px;">进行配置</h2>
+                    <br>
+
+            <p style=" margin-bottom: 20px;color: #555; ">PeekF提供了可配置的API拦截功能，可选择整个dll，也可选择dll中的特定函数进行拦截</p>
+        <li>在导航栏中点击配置</li>
+        <li>选择导入配置表进行配置或下拉复选框进行配置</li>
+         <h2 class="blog-post-title" style="margin-bottom: 5px;font-size: 40px;">进行监控</h2>
+          <br>
+
+            <p style=" margin-bottom: 20px;color: #555; ">PeekF提供动态实时监控功能，甚至可以进行多层级的筛选显示</p>
+        <li>在导航栏中点击配置</li>
+       <li>运行Wine程序</li>
+        <li>在导航栏中点击监控</li>
+         <h2 class="blog-post-title" style="margin-bottom: 5px;font-size: 40px;">进行对比</h2>
+            <br>
+            <p style=" margin-bottom: 20px;color: #555; ">PeekF提供了对比功能，快速的序列匹配算法让您对Wine运行轨迹的错误一目了然</p>
+            <li>在导航栏中点击对比</li>
+            <li>导入Windows下API Monitor输出文件</li>
+            <li>点击分析按钮</li>
+         <h2 class="blog-post-title" style="margin-bottom: 5px;font-size: 40px;">进行分析</h2>
+         <br>
+
+            <p style=" margin-bottom: 20px;color: #555; ">PeekF提供了分析功能，可以进行调用序列的可视化，以及API调用分析</p>
+        <li>在导航栏中选择可视化分析工具</li>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    </div> <!-- /container -->
+
+     <footer style="background-color: #f5f5f5;position: absolute;bottom:0px;width: 100%;height: 60px;" >
+      <div class="container" >
+          <br>
+        <p class="text-muted">遇到问题，请联系作者:joey_b@126.com</p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
