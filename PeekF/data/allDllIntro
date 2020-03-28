@@ -1,0 +1,732 @@
+aaclient.dll 何时何地都可以访问客户端
+accessibilitycpl.dll 轻松访问控制面板
+acledit.dll 访问控制列表编辑器
+aclui.dll 安全描述符编辑器
+acppage.dll 兼容性选项卡外壳扩展库
+ActionCenter.dll 操作中心
+ActionCenterCPL.dll 操作中心控制面板
+activeds.dll AD 路由器DLL
+AdmTmpl.dll 管理模板扩展
+adsnt.dll AD Windows NT 提供程序DLL
+adtschema.dll 安全审核架构DLL
+advapi32.dll 高级 Windows 32 基本API
+aeevts.dll 应用程序体验事件资源
+aelupsvc.dll 应用程序体验事件服务
+aepdu.dll 程序兼容性数据更新程序
+AltTab.dll Windows Shell Alt Tab
+apds.dll Microsoft(R) 帮助数据服务模块
+apilogen.dll API跟踪日志引擎
+apphelp.dll 应用程序兼容性客户端库
+Apphlpdm.dll 应用程序兼容性帮助模块
+appidapi.dll 应用程序标识 API DLL
+appidsvc.dll 应用程序标识服务
+appinfo.dll 应用程序信息服务
+appmgmts.dll 软件安装服务
+appmgr.dll 软件安装管理单元扩展
+asferror.dll ASF 错误定义
+atmlib.dll 属性实用程序
+audiosrv.dll Windows 音频服务
+auditcse.dll Windows 审核设置 CSE
+AuditNativeSnapIn.dll 审核策略组策略编辑器扩展
+AuditPolicyGPInterop.dll 审核策略 GP 模块
+auditpolmsg.dll 审核策略 MMC 管理单元消息
+authfwcfg.dll 高级安全 Windows 防火墙配置帮助程序
+AuthFWGP.dll 高级安全 Windows 防火墙组策略编辑器扩展
+authui.dll Windows 身份验证UI
+autoplay.dll 自动播放控制面板
+AuxiliaryDisplayClassInstaller.dll Microsoft Windows Sideshow 兼容设备任类别的安装程序
+AuxiliaryDisplayCpl.dll Microsoft Windows Sideshow 控制面板
+AuxiliaryDisplayServices.dll Microsoft Windows Sideshow 服务
+avicap32.dll AVI 捕获窗口类
+avifil32.dll Microsoft AVI 文件支持库
+AxInstSv.dll ActiveX 安装程序服务
+azroleui.dll 授权管理器
+basecsp.dll 基本智能卡加密提供程
+batmeter.dll 电池帮助程序DLL
+batt.dll 电池类别安装程序
+BdeHdCfgLib.dll BitLocker 驱动准备工具
+BFE.dll 基本筛选引擎
+biocpl.dll 生物特征控制面板
+BlbEvents.dll Bib发布者
+blbres.dll Windows(R)块级备份引擎服务资源
+bootres.dll 启动资源库
+bootstr.dll 启动字符串资源库
+bridgeres.dll bridge 资源
+browser.dll 计算机浏览器服务 DLL
+bthci.dll 蓝牙类安装程序
+BthMtpContextHandler.dll 蓝牙 MTP 上下文菜单处理程序
+BthpanContextHandler.dll Bthpan 上下文处理程序
+bthserv.dll 蓝牙支持服务
+btpanui.dll 蓝牙PNA 用户界面
+cabview.dll cab文件查看器外壳扩展
+certmgr.dll 证书管理单元
+CertPolEng.dll 证书策略引擎
+certprop.dll 智能卡证书传播服务
+cewmdm.dll Windows CE WMDM 服务提供商
+cfgbkend.dll 配置后端接口
+cic.dll CIC 任务板MMC控制
+clb.dll 栏列表框
+clusapi.dll 群集API库
+cmcfg32.dll Microsoft连接管理器配置DLL
+cmdial32.dll Microsoft连接管理器
+cmutil.dll Microsoft连接管理器实用工具库
+crypt32.dll 加密API32
+cmlua.dll Microsoft连接管理器管理API助手类
+cmncliM.dll 公用客户端
+cmstplua.dll 用于安装程序的连接管理器管理API帮助程序
+cofiredm.dll 损坏文件恢复诊断模块
+colorui.dll Microsoft 颜色控制面板
+comctl32.dll 用户体验控件库
+compstui.dll 公用属性页用户界面DLL
+comrepl.dll COM+
+comres.dll COM+ 资源
+comsnap.dll COM+ Explorer MMC Sanpin
+comsvcs.dll COM+ 服务
+comuid.dll COM+ Explorer UI
+connect.dll 连接向导
+console.dll 控制面板控制台小程序
+credui.dll 凭据管理器用户界面
+cryptdlg.dll Microsoft公用证书对话框
+cryptsvc.dll 加密服务
+cryptui.dll Microsoft信任UI提供程序
+CscMig.dll Microsoft脱机文件迁移插件
+cscobj.dll 由CSC API的客户端使用进程内COM对象
+cscsvc.dll CSC 服务DLL
+cscui.dll 客户端缓存UI
+dataclen.dll Windows磁盘空间清理程序
+dbghelp.dll Windows Image Helper
+DDORes.dll 设备类别信息和资源
+defaultlocationcpl.dll 默认位置控制面板
+defragsvc.dll Microsoft磁盘碎片整理程序
+deskadp.dll 高级显示性能属性
+deskmon.dll 高级显示适配器属性
+devenum.dll 设备枚举
+DeviceCenter.dll 设备中心
+DevicePairing.dll 用于设备配对的外壳扩展
+DevicePairingFolder.dll 设备配对文件夹
+devmgr.dll 设备管理器 MMC管理单元
+dfdts.dll Windows磁盘故障诊断模块
+DfsShlEx.dll 分布式文件系统外壳扩展
+dhcpcmonitor.dll DHCP客户端监视DLL
+dhcpcore.dll DHCP客户端服务
+dhcpcore6.dll DHCP客户端
+dhcpcsvc.dll DHCP客户端服务
+dhcpcsvc6.dll DHCPv6 客户端
+DHCPQEC.dll Microsoft DHCP NAP 强制客户端
+DiagCpl.dll 疑难解答控制面板
+diagperf.dll Microsoft 性能诊断
+dimsjob.dll DIMS 作业DLL
+dimsroam.dll 密匙漫游 DIMS提供程序DLL
+diskcopy.dll Windows磁盘复制
+dispci.dll Microsoft 显示器类安装程序
+Display.dll 显示控制面板
+dmdskres.dll 磁盘管理单元资源
+dmdskres2.dll 磁盘管理单元资源
+dmutil.dll 逻辑磁盘管理器实用工具库
+dnsapi.dll DNS客户端API DLL
+dnscmmc.dll DNS客户端MMC管理单元DLL
+dnshc.dll DNS 帮助程序类
+dnsrslvr.dll DNS缓存程序解析服务
+docprop.dll OLE DocFile属性页
+DocumentPerformanceEvents.dll 文档和打印性能事件
+dot3api.dll 802.3 自动配置API
+dot3cfg.dll 802.3 Nesh 帮助程序
+dot3dlg.dll 802.3 UI 帮助程序
+dot3gpclnt.dll 802.3 组策略客户端
+dot3gpui.dll 802.3 网络策略管理单元
+dot3hc.dll dot3 帮助程序类
+dot3msm.dll 802.3 媒体特定模块
+dot3svc.dll 有线自动配置服务
+dot3ui.dll 802.3 高级UI
+dps.dll WDI诊断策略服务
+drt.dll 分布式路由表
+DShowRdpFilter.dll RDP 输出程序筛选器（重定向程序）
+dskquota.dll Windows Shell 磁盘配额支持
+dskquoui.dll Windows Shell 磁盘配额用户界面
+dsquery.dll 目录服务寻找
+dssec.dll 目录服务安全UI
+dsuiext.dll 目录服务常用用户界面
+dtsh.dll 检测和共享状态UI
+dui70.dll Windows DirectUI 引擎
+dwmapi.dll Microsoft 桌面窗口管理器API
+dwmcore.dll Windows DWM 核心库
+dwmredir.dll Microsoft 桌面窗口管理器重定向组件
+DWrite.dll Microsoft DircertX 版式服务
+dxdiagn.dll Microsoft DircertX 诊断工具
+DXP.dll Device Stage 外壳扩展
+DXPTaskRingtone.dll Microsoft 铃声编辑器
+eappcfg.dll EAP 对等配置
+eappgnui.dll EAP 通用UI
+eapphost.dll Microsoft EAPHost 对等服务
+EAPQEC.dll Microsoft EAP NAP强制客户端
+eapsvc.dll Microsoft EAPHost 服务
+efsadu.dll 文件加密实用工具
+efssvc.dll EFS 服务
+EhStorAPI.dll Windows 增强的存储API
+EhStorPwdMgr.dll Windows 增强的存储密码管理器
+EhStorShell.dll Windows 增强的存储外壳扩展DLL
+els.dll 事件查看器管理单元
+ELSCore.dll Els 核心平台DLL
+EncDec.dll XDSCodes 和加密程序解密程序标记筛选器
+energy.dll 电源效率诊断
+eqossnap.dll EQOS 管理单元扩展单元DLL
+esent.dll Microsoft 可扩展存储引擎
+evr.dll 增强的视频曾现器DLL
+Faultrep.dll 用户故障报告DLL
+fde.dll 文件夹重定向管理单元
+fdeploy.dll 文件夹重定向组策略扩展
+fdPHost.dll 功能发现提供程序主机服务
+FDResPub.dll 功能发现资源发布服务
+filemgmt.dll 服务和共享文件夹
+FirewallAPI.dll Windows 防火墙API
+FirewallControlPanel.dll Windows 防火墙控制面板
+fltLib.dll 筛选器库
+fms.dll 字体管理服务
+FntCache.dll 字体缓存服务
+fontext.dll 字体文件夹
+fphc.dll 筛选平台帮助程序类
+fthsvc.dll Microsoft Windows 容错堆诊断模块
+fundisc.dll 功能发现DLL
+fvecpl.dll BitLocker 驱动器加密控制面板
+fveRecover.dll Windows BitLocker 驱动器加密用户界面
+fveui.dll BitLocker 驱动器加密UI
+fvewiz.dll BitLocker 驱动器加密向导
+fwcfg.dll Windows 防火墙配置帮助程序
+FWPUCLNT.dll FWP IPsec 用户模式API
+FXSCOMPOSERES.dll 传真写
+FXSEVENT.dll Microsoft 传真事件日志支持DLL
+FXSRESM.dll 传真服务
+FXSST.dll 传真资源DLL
+FXSUTILITY.dll 传真实用工具
+gameux.dll 游戏资源管理器
+gcdef.dll 游戏控制器默认表
+glu32.dll OpenGL 实用工具库DLL
+gpprefcl.dll 组策略首选客户端
+gpprnext.dll 组策略打印机扩展
+gpscript.dll 脚本客户端扩展
+gpsvc.dll 组策略客户端
+Groupinghc.dll 分组帮助程序类
+hcproviders.dll 操作中心提供程序
+hgcpl.dll 家庭组控制面板
+hhsetup.dll Windows HTML Help
+hid.dll hid 用户库
+hidserv.dll hid 服务
+hnetcfg.dll 家庭网络配置管理器
+hnetmon.dll 家庭网络监视程序DLL
+hotplug.dll 安全删除硬件小程序
+htui.dll 通用半色调颜色对话框
+htui.dll 网络策略服务器
+iasacct.dll NPS 记账提供程序
+iasads.dll NPS Active Directory 数据存储
+iasdatastore.dll NPS 数据存储服务器
+iasrad.dll NPS RADIUS 组件
+iassdo.dll NPS SDO 组件
+iassvcs.dll NPS 服务组件
+icardie.dll Microsoft 信息卡IE帮助程序
+icmui.dll Microsoft 颜色匹配系统用户界面DLL
+icsigd.dll Internet 网络设备属性
+IdListen.dll 标识侦听器
+ieakeng.dll Internet Explorer 管理工具包引擎库
+ieaksie.dll 用于组策略的 InternetExplorer 管理单元扩展
+iepeers.dll Internet Explorer 对待客户对象
+iernonce.dll 带用户界面的扩展Run Once 处理
+iesetup.dll IDO 版本映射
+ieui.dll Internet Explorer UI 引擎
+ifmon.dll IF监视程序DLL
+igdDiag.dll IGD 帮助程序类
+imapi.dll 映像控制API
+imapi2.dll 映像控制APIv2
+imapi2fs.dll 映像控制文件系统映像APIv2
+inetpp.dll Internet 打印提供程序
+inetppui.dll Internet 打印客户端
+input.dll 输入设置DLL
+inseng.dll 安装引擎
+IPBusEnum.dll PnP-X IP 总线枚举器 DLL
+IPHLPAPI.dll IP Helper API
+iphlpsvc.dll 通过IPv4 网络提供 IPv6 连接的服务
+ipnathlp.dll Microsoft NAT 帮助程序组件
+iprtrmgr.dll IP 路由器管理器
+ipsecsnp.dll IP安全策略管理器
+ipsmsnap.dll IP安全监视程序管理单元
+irclass.dll 红外类共同安装程序
+irmon.dll 红外监视程序
+iscsicpl.dll iSCSI发起程序控制面板小程序
+iscsidsc.dll iSCSI发现API
+iscsiexe.dll iSCSI发现服务
+iscsilog.dll iSCSI事件日志DLL
+iyuv_32.dll Video YUV 编码解码器
+jnwmon.dll Windows 日记本端口监视器DLL
+jscript.dll Windows 脚本DLL
+kerberos.dll kerberos 安全包
+kernel32.dll Windows NT 基本API 客户端DLL
+KernelBase.dll Windows NT 基本API 客户端DLL
+kernelceip.dll 内核 CEIP 任务
+keyiso.dll CNG 密匙隔离服务
+keymgr.dll 存储的用户名和密码
+KMSVC.dll 密匙管理服务
+L2SecHC.dll 2层诊断帮助查程序
+licmgr10.dll Microsoft（R) 许可证管理器DLL
+ListSvc.dll Windows 家庭网络DLL
+lltdres.dll 链路层拓扑发现资源DLL
+lmhsvc.dll TCP\IP NetBios 传输服务DLL
+loadperf.dll 加载与卸载性能计数器
+localsec.dll 本地用户和组 MMC 管理单元
+localspl.dll 本地后台处理程序
+localui.dll 本地监视器UI DLL
+loghours.dll 计划对话框
+lpk.dll Windows 语言包 DLL
+lsasrv.dll LSA 服务器DLL
+Magnification.dll Windows 屏幕放大镜 API
+mapi32.dll 适用于 Windows NT 的扩展 MAPI 1.0
+mapistub.dll 适用于 Windows NT 的扩展 MAPI 1.0
+mciavi32.dll Video For Windows MCI 驱动程序
+mcicda.dll cedaudio 设备 MCI 驱动程序
+mciqtz32.dll DirectShow MCI 驱动程序
+mciseq.dll MIDI 顺序器的 MCI 驱动程序
+mciwave.dll 波形音频的 MCI 驱动程序
+mctres.dll MCT 资源DLL
+mdminst.dll 调制解调器类安装程序
+memdiag.dll 内存测试程序增强
+mf.dll 媒体基础DLL
+mfc42.dll MFCDLL 共享库
+mfc42u.dll MFCDLL 共享库
+mferror.dll 媒体基础错误DLL
+miguiresource.dll MIG Win32 资源
+mimefilt.dll MIME 筛选器
+mlang.dll 多语言支持DLL
+mmcbase.dll MMC 基本DLL
+mmci.dll 媒体类安装程序
+mmcndmgr.dll MMC 节点管理器
+mmcss.dll 多媒体类计划程序服务
+mmres.dll 常规音频资源
+modemui.dll Windows 调制解调器属性
+montr_ci.dll Microsoft 监视器类安装程序
+mpr.dll 多提供程序路由器DLL
+mprddm.dll 请求拨号管理器监护人
+mprdim.dll 动态接口管理器
+mprmsg.dll 多协议路由器消息DLL
+MPSSVC.dll Microsoft 保护服务
+msacm32.dll Microsoft ACM 音频筛选器
+msaudite.dll 安全审核事件DLL
+mscandui.dll MSCANDUI 服务器DLL
+mscms.dll 颜色匹配系统DLL
+mscorier.dll Microsoft .NET 运行时 IE资源
+msctf.dll MSCTF 服务器 DLL
+msctfp.dll MSCTF 服务 DLL
+msctfui.dll MSCTF 服务器 DLL
+msdrm.dll Windows 权限管理客户端
+msdtcVSp1res.dll 针对 vista SP1的 Microsoft 分布式事务处理协调器资源
+mshtml.dll Microsoft (R) HTML 查看器
+mshtmler.dll Microsoft (R) HTML 编辑组件资源DLL
+msi.dll Windows 安装程序文件 DLL
+MsiCofire.dll 损坏的 MSI 文件恢复诊断模块
+msident.dll Microsoft 标识管理器
+msieftp.dll IE文件夹外壳扩展
+msihnd.dll Windows 安装程序 DLL
+msimsg.dll Windows 安装程序国际化消息 DLL
+msimtf.dll 活动IMM 服务器 DLL
+msobjs.dll 系统对象审核名称
+msports.dll 端口类安全程序
+msprivs.dll Microsoft 特权装换
+msrahc.dll 远程协助诊断提供程序
+msrating.dll Internet分级和本地用户管理 DLL
+mssha.dll Windows 健康代理
+msshavmsg.dll Windows 健康代理验证程序消息
+mssign32.dll Microsoft 信任签名DLL
+mssph.dll Windows 搜索协议处理程序
+mssphtb.dll OutLook MSSearch 连接器
+mssvp.dll MSSearch VIsta 平台
+mstask.dll 任务计划程序接口 DLL
+mstscax.dll 远程桌面ActiveX客户端
+msutb.dll MSUTB 服务器 DLL
+msvidc32.dll Microsoft Video 1 压缩器
+MSVidCtl.dll 流视频的 ActiveX 控件
+mswmdm.dll Windows 媒体设备管理器内核
+mswsock.dll Microsoft Windows Sockets 2.0 服务提供程序
+mycomput.dll 计算机管理
+mydocs.dll 我的文档文件夹UI
+napdsnap.dll NAP GPEdit 扩展
+napipsec.dll NAP IPs 强制客户端
+NcdProp.dll 高级网络设备属性
+ncrypt.dll Windows 加密库
+ncryptui.dll Windows 加密密匙保护UI库
+ncsi.dll 网络连接状态指示器
+ndfapi.dll 网络诊断框架客户端API
+ndishc.dll NDIS 帮助程序类
+netapi32.dll Net Win32 API DLL
+netcenter.dll 网络中心控制面板
+netcfgx.dll 网络配置对象
+netcorehc.dll 网络核心诊断帮助程序类
+netdiagfx.dll 网络诊断框架
+netevent.dll Net 处理程序
+neth.dll 网络帮助消息DLL
+netid.dll 系统控制面板小程序：网络ID页
+netiohlp.dll Netio 帮助程序 DLL
+netlogon.dll 网络登录服务 DLL
+netman.dll 网络连接管理器
+netmsg.dll 网络消息 DLL
+netplwiz.dll 映射网络驱动器\网络邻居向导
+netprof.dll 网络配置文件管理
+netprofm.dll 网络列表管理器
+NetProjW.dll 连接到网络投影仪
+netshell.dll 网络连接外壳
+nettrace.dll 网络跟踪帮助程序
+networkexplorer.dll 网络浏览器
+networkmap.dll 网络映射
+newdev.dll 添加硬件设备库
+nlahc.dll NLA 帮助程序类
+nlasvc.dll 网络位置感知
+nlhtml.dll HTML 筛选器
+nlmgp.dll 网络列表管理器管理单元
+nshhttp.dll HTTP Nesh DLL
+nshipsec.dll 网络外壳 IP 安全帮助程序 DLL
+nshwfp.dll Windows 筛选平台 Netsh 帮助程序
+nsisvc.dll Windows 存储界面 RPC 服务器
+ntdll.dll NT 层 DLL
+ntlanman.dll Microsoft（R）LAN 管理器
+ntlanui2.dll 网络对象外壳 UI
+ntmarta.dll NT MARTA 提供程序
+ntprint.dll 后台处理程序设置 DLL
+ntshrui.dll 用于共享的外壳扩展
+ntshrui.dll NT64 位上的16位枚举
+objsel.dll 对象选取器对话框
+occache.dll 对象控件查看器
+odbc32.dll ODBC 驱动管理器
+odbccp32.dll ODBC 安装程序
+odbcint.dll ODBC 资源 DLL
+offfilt.dll OFFICE 筛选器
+ole32.dll 用于 Windows 的 Microsoft OLE
+oledlg.dll OLE 用户界面支持
+oleres.dll OLE 资源 DLL
+onex.dll IEEE 802.1x 请求方库
+onexui.dll IEEE 802.1x 请求UI库
+OobeFldr.dll 入门
+P2P.dll 对等分组
+p2pcollab.dll 对等协作
+p2pnetsh.dll 对等 Netsh 帮助程序
+p2psvc.dll 对等服务
+pautoenr.dll 自动注册DLL
+pcaevts.dll 程序兼容性助手事件资源
+pcasvc.dll 程序兼容性助手服务
+pcaui.dll 程序兼容性助手用户界面模块
+pdh.dll Windows 性能助手 DLL
+pdhui.dll PDH 用户界面
+PeerDist.dll BranchCache 客户端
+PeerDistSh.dll BranchCache Netshell 帮助程序
+PeerDistSvc.dll BranchCache 服务
+PerfCenterCPL.dll 性能中心
+perfctrs.dll 性能计数器
+perfdisk.dll Windows 磁盘性能对象 DLL
+perfnet.dll Windows 网络服务性能对象 DLL
+perfos.dll Windows 系统性能对象 DLL
+perfproc.dll Windows 系统进程性能对象 DLL
+photowiz.dll 照片打印向导
+pid.dll Microsoft PID
+pla.dll 性能日志警报
+PlaySndSrv.dll Play Sand 服务
+pnidui.dll 网络系统图标
+pnpui.dll 即插即用用户界面DLL
+PNPXAssocPrx.dll PNPX 关联 DLL
+pnrpauto.dll PNRP 自动服务
+Pnrphc.dll PNRP 帮助程序类
+pnrpnsp.dll PNRP 命名空间
+pnrpsvc.dll PNRP 服务
+polstore.dll 策略存储 DLL
+PortableDeviceApi.dll Windows 便携设备 API 组件
+PortableDeviceStatus.dll Microsoft Windows 便携设备状态提供程序
+PortableDeviceSyncProvider.dll Microsoft Windows 便携设备提供程序
+pots.dll 电源技术支持工程师
+powercpl.dll 电源选项控制面板
+powrprof.dll 电源配置文件帮助程序
+prflbmsg.dll Prflb事件消息
+printui.dll 打印机设备用户接口
+procinst.dll 处理器类安装程序
+propsys.dll Microsoft 属性系统
+provsvc.dll Microsoft HomeGroup
+psbase.dll 受保护的存储默认提供程序
+PSHED.dll 特定于平台的硬件错误驱动程序
+puiobj.dll PrintUI 对象
+QAGENT.dll 隔离代理
+QAGENTRT.dll 隔离代理服务运行时
+qcap.dll DriectShow 运行时
+QCLIPROV.dll 隔离客户端WMI 提供程序
+qdvd.dll DriectShow DVD 播放运行时
+qedit.dll DriectShow 编辑
+qmgr.dll 后台智能传输服务
+QSHVHOST.dll 隔离 SHV 主机
+QSVRMGMT.dll 隔离服务器管理
+QUTIL.dll 隔离实用程序
+RacEngn.dll 可靠性能分析指标计算引擎
+racpldlg.dll 远程协助联系人列表
+radardt.dll Microsoft Windows 资源消耗检测器
+radarrs.dll Microsoft Windows 资源耗尽解决程序
+rasauto.dll 远程访问自动拨号管理器
+rascfg.dll RAS 配置对象
+raschap.dll 远程访问 PPP CHAP
+rasctrs.dll Windows NT 远程访问性能计数器
+rasdiag.dll RAS 诊断帮助程序类
+rasdlg.dll 远程访问公用对话框 API
+rasgcw.dll RAS 向导页
+rasman.dll 远程访问连接管理器
+rasmans.dll 远程访问连接管理器
+rasmbmgr.dll 为启用移动性的VPN 连接提供切换支持（当其基础接口不可用时）
+RASMM.dll RAS 媒体管理器
+rasmontr.dll RAS 监视程序
+rasplap.dll RAS PLAP 凭据提供程序
+rastls.dll 远程访问 PPPEAP-TLS
+rdpcore.dll RDP 核心组件 DLL
+rdpendp.dll RDP 音频终结点
+ReAgent.dll Microsoft Windows 恢复代理 DLL
+recovery.dll 恢复控制面板
+regidle.dll 注册表闲置备份任务
+regsvc.dll 远程注册表服务
+RpcEpMap.dll RPC 终结点映射器
+rpchttp.dll RPC HTTP
+RPCNDFP.dll RPC NDF 帮助程序类
+RpcNs4.dll 远程过程调用名称服务客户端
+rpcnsh.dll RPC 网络外壳帮助程序
+rpcrt4.dll 远程过程调用运行时
+rshx32.dll 安全外壳扩展
+RstrtMgr.dll 重新启动管理器
+rtffilt.dll RTF 筛选器
+rtm.dll 路由表管理器
+SampleRes.dll Microsoft 示例
+samsrv.dll SAM 服务器
+scansetting.dll Microsoft（TM）Windows（R）配置文件和扫描实现
+SCardDlg.dll 智能卡公用对话框
+SCardDlg.dll 智能卡资源管理服务器
+sccls.dll 智能卡的类安装程序
+scecli.dll Windows安全配置编辑器客户端引擎
+scesrv.dll Windows安全配置编辑器引擎
+scext.dll mon-minwin的服务控制管理器扩展DLL
+schedsvc.dll 任务计划程序服务
+scrptadm.dll 脚本adm 扩展
+sdautoplay.dll Microsoft（TM）Windows 备份自动播
+sdcpl.dll windows 备份和还原控制面板
+sdengin2.dll Microsoft（TM）Windows 备份引擎
+sdiageng.dll 脚本诊断执行引擎
+sdiagprv.dll Windows 脚本诊断提供程序API
+sdiagschd.dll 脚本诊断计划任务
+sdohlp.dll NPS SDO 帮助程序组件
+sdrsvc.dll Microsoft（TM）Windows 备份服务
+sdshext.dll Microsoft（TM）Windows 备份外壳扩展
+SearchFolder.dll 搜索文件夹用户界面
+seclogon.dll 辅助登录服务
+sendmail.dll 发送电子邮件
+Sens.dll 系统事件通知服务
+SensorsCpl.dll 打开位置和其他传感器
+sensrsvc.dll Microsoft Windows 氛围光服务
+serialui.dll 串行端口属性页
+setupapi.dll Windows 安装程序API
+setupcln.dll 安装程序文件清理
+setupetw.dll 设置ETW 事件资源
+sharemediacpl.dll 共享媒体控制面板
+shdocvw.dll Shell Doc 对象和控件库
+shell32.dll Windows 外壳公用 DLL
+shellstyle.dll Windows 外壳样式资源 DLL
+shfolder.dll windows 外壳文件夹服务
+shimgvw.dll 照片库查看器
+shlwapi.dll 外壳简易实用工具库
+shsetup.dll Windows 外壳安装帮助程序 DLL
+shsvcs.dll Windows 外壳服务 DLL
+shwebsvc.dll Windows 外壳 Web 服务器
+slc.dll 软件授权客户端dll
+SmartcardCredentialProvider.dll Windows 智能卡凭据提供程序
+SMBHelperClass.dll 网络诊断框架的SMB(文件共享)辅助类
+SndVolSSO.dll SCA 音量
+SNTSearch.dll 便笺搜索
+softkbd.dll 软键盘服务器提示
+sperror.dll SP 错误
+spp.dll Microsoft（R）Windows 共享保护点库
+sppc.dll 软件授权客户端 DLL
+sppcc.dll 软件授权商务客户端
+sppcomapi.dll 软件授权库
+sppcommdlg.dll 软件授权用户界面 API
+sppnp.dll 系统准备程序的PnP 模块
+sppuinotify.dll SPP 通知服务
+spwizeng.dll 安装程序向导框架
+spwizimg.dll 安装程序向导框架资源
+spwizres.dll 安装程序向导框架资源
+spwizui.dll SPC 向导界面
+srchadmin.dll 索引选项
+srcore.dll Microsoft（R）Windows 系统还原核心库
+SrpUxNativeSnapIn.dll 应用程序控制策略组策略编辑器扩展
+srrstr.dll Microsoft（R）Windows 系统保护配置库
+srvcli.dll 桌面服务器服务 DLL
+srvsvc.dll 服务器服务 DLL
+sscore.dll 服务器服务核心
+ssdpsrv.dll SSDP 服务 DLL
+sstpsvc.dll 提供使用安全套接字隧道协议（SSTP）连接到远程计算机的设备（使用VPN）
+sti.dll 禁止图像设备客户端
+sti_ci.dll 禁止图像类安装程序
+stobject.dll Systray 外壳服务对象
+StorageContextHandler.dll 设备中心存储上下文菜单句柄
+Storprop.dll 存储设备属性页
+sud.dll SUD 控制面板
+swprv.dll Microsoft（R）卷影复制服务软件提供程序
+sxproxy.dll 系统保护代理库
+sxssrv.dll Windows SxS 服务 DLL
+sxsstore.dll Microsoft 同步中心
+SyncInfrastructure.dll Microsoft Windows 同步基础结构 Windows SxS 设备 DLL
+syncui.dll Windows 公文包
+sysclass.dll 系统类安装程序库
+SysFxUI.dll 音频系统FX 控制面板扩展
+sysmain.dll Supertfetch 服务主机
+sysprepMCE.dll Windows 媒体中心 SysPrep DLL
+syssetup.dll Windows NT 系统安装程序
+systemcpl.dll 我的系统控制面板
+Tabbtn.dll Microsoft Windows Table PC 按钮组件
+TabSvc.dll Microsoft Windows Table PC 输入服务
+tapisrv.dll Microsoft（R）Windows（TM)电话服务器
+tapiui.dll Microsoft（R）Windows（TM)电话用户界面API
+taskbarcpl.dll 工具栏控制面板
+taskcomp.dll 任务计划程序向下兼容插件
+tbssvc.dll TBS
+tbssvc.dll TBS 服务
+tcpipcfg.dll 网络配置对象
+tcpmon.dll 标准TCP\IP 端口监视器
+tcpmonui.dll 标准TCP\IP 端口监视器用户界面
+tdh.dll 事件跟踪帮助库
+themecpl.dll 个性化控制面板
+themeservice.dll Windows 外壳主题服务
+themeui.dll Windows 主题 API
+thumbcache.dll Microsoft 缩略图缓存
+tpmcompc.dll 计算机选择对话框
+trkwks.dll 分布式链接跟踪客户
+tsgqec.dll RD 网关 QEC
+tsmf.dll RDP MF 插件
+TSWorkspace.dll RemoteAPP 和桌面连接组件
+twext.dll 以前版本的属性页
+tzres.dll 时区资源
+ubpm.dll 统一后台进程管理器
+ucmhc.dll UCM 帮助程序类
+uDWM.dll Microsoft 桌面窗口管理器
+UIAutomationCore.dll Microsoft UI 自动化核心
+uicom.dll 增加或去除调制解调器DLL
+UIHub.dll Microsoft Windows Table PC 笔势和笔反馈组件
+UIRibbon.dll Windows Ribbon 框架
+UIRibbonRes.dll Windows Ribbon 框架资源
+ulib.dll 文件工具支持 DLL
+umpnpmgr.dll 用户模式即插即用服务
+unimdmat.dll UniModem 服务提供程序AT 微型启驱动程序
+upnphost.dll Upnp设备主机
+urlmon.dll Win32的OLE32扩展
+usbceip.dll USBCELP 任务
+usbmon.dll 标准动态打印端口监视器
+usbperf.dll USB 性能对象
+usbui.dll USB 用户界面
+user32.dll 多用户 Windows 用户API客户端
+usercpl.dll 用户控制面板
+utildll.dll WinStation 实用程序支持
+uxlib.dll 安装程序向导框架
+uxlibres.dll 安装程序向导框架资源
+VAN.dll 查看可用网络
+Vault.dll Windows 保管库控制面板
+vaultsvc.dll 凭据管理服务
+vbscript.dll Microsoft（R）VB脚本
+vdsbas.dll 虚拟磁盘服务基本提供程序
+vdsbas.dll VDS 动态卷提供程序版本 2.1.0.1
+vdsutil.dll 虚拟磁盘服务实用工具库
+vdsvd.dll VDS 动态卷提供程序版本 1.0
+vfwwdm32.dll WDM 视频捕获设备的vfw mm 驱动程序
+virtdisk.dll 虚拟磁盘 API DLL
+vmbusres.dll 虚拟机总线资源
+vmicres.dll 虚拟机集成组件服务资源
+vmstorfltres.dll 虚拟机存储筛选器资源
+vsstrace.dll Microsoft（R）卷影复制服务跟踪库
+w32time.dll Windos 时间服务
+WABSyncProvider.dll Microsoft Windows Contacts 同步提供程序
+wbiosrvc.dll Windows 生物识别服务
+wcncsvc.dll Windows 立即连接配置注册服务
+WcnNetsh.dll WCN Nesh 帮助程序
+wcnwiz.dll Windows 立即连接向导
+wdc.dll 性能监视器
+wdi.dll 诊断基础结构
+WebClnt.dll Web DAV 服务
+webio.dll Web 传输协议API
+webservices.dll Web 服务运行时
+wecsvc.dll 事件收集器服务
+wer.dll Windows 错误报告
+werconcpl.dll Windows 错误报告控制面板
+wercplsupport.dll 问题报告和解决方案
+wersvc.dll Windows 错误报告服务
+werui.dll Windows 错误报告用户界面
+wevtapi.dll 事件消耗和配置API
+wevtsvc.dll 事件日志记录服务
+WfHC.dll Windows 防火墙帮助程序类
+WFSR.dll Windows 传真和扫描资源
+whealogr.dll WHEA 技术支持工程师
+whhelper.dll WinHttp 网络外壳帮助程序
+wiaaut.dll WIA自动化层
+wiadefui.dll WIA 扫描仪默认UI
+wiadss.dll WIA TWAIN 兼容性层
+wiaservc.dll 禁止图像设备服务
+wiashext.dll 图像设备外壳文件夹UI
+wimgapi.dll Windows 映像库
+win32spl.dll 客户端侧面程序打印提供服务
+winbrand.dll Windows Branding 资源DLL
+winethc.dll WinInet 帮助程序类
+winhttp.dll Windows HTTP 服务
+wininet.dll Windows的网络扩展
+WinSATAPI.dll windows 系统评估工具API
+WinSCard.dll Microsoft 智能卡 API
+winsockhc.dll Winsock 网络诊断帮助程序类
+winsrv.dll 多用户的Windows 服务
+wkssvc.dll 工作站服务 dll
+wlanapi.dll Windows WLAN 自动配置客户端DLL
+wlancfg.dll WLAN Nesh 帮助程序
+WLanConn.dll dot11 连接流
+wlandlg.dll 无线局域网对话向导
+wlangpui.dll 无线网络策略管理单元
+WLanHC.dll 无线LAN助手类
+WlanMM.dll dot11 媒体和临时管理器
+wlanpref.dll 无线首选网络
+wlansvc.dll Windows WLAN 自动配置服务
+wlanui.dll 无线配置文件用户界面
+wlanutil.dll Windows 无线局域网 802.11实用工具
+wlgpclnt.dll 802.11 组策略客户端
+wmerror.dll Windows媒体错误定义
+wmiprop.dll WDM 提供程序动态属性页面 CoInstall
+WMPhoto.dll Windows 媒体照片解码器
+wmploc.dll Windows Media Player 资源
+wmpshell.dll Windows Media Player 启动程序
+Wpc.dll WPC 设置库
+wpcao.dll WPC管理员覆盖
+wpccpl.dll 家长控制控制面板
+wpcmig.dll 家长控制迁移
+wpcmig.dll WPC 过滤服务
+wpcumi.dll Windows 家长控制通知
+wpd_ci.dll Windows 便携设备的驱动程序安装类别安装程序
+wpdbusenum.dll Windows 便携式设备枚举器
+wpdshext.dll 便携设备外壳扩展
+wpdwcn.dll Windows 便携设备 WCN 向导
+wscsvc.dll Windows 安全中心服务
+WSDApi.dll 设备API DLL 的Web服务
+WSDMon.dll WSD 打印机端口监视器
+wsecedit.dll 安全配置UI模块
+wsepno.dll Windows 搜索服务的配置文件通知支持
+wshelper.dll Winsock的Winsock Net 外壳帮助程序
+wship6.dll Winsock2 帮助程序 DLL（TL/IPv6）
+wshqos.dll Winsock2 帮助程序 DLL
+wshrm.dll 用于PGM的Windows Winsocks 帮助程序 DLL
+WSHTCPIP.dll Winsock2 帮助程序 DLL（TL/IPv4）
+wuapi.dll Windows Updata 客户端 API
+wuaueng.dll Windows Updata 代理
+wucltux.dll Windows Updata 客户端用户体验
+WUDFPlatform.dll Windows 驱动程序基础用户模式平台
+WUDFSvc.dll Windows 驱动程序基础用户模式平台驱动程序框架服务
+WUDFx.dll Windows 驱动程序基础用户模式平台驱动程序框架库
+Wwanadvui.dll 无线WAN 连接流
+wwancfg.dll MBN Nets 帮助程序 DLL
+wwanconn.dll 无线WAN 帮助程序类
+wwanmm.dll WWan 媒体管理器
+Wwanpref.dll 无线WAN配置文件设置编辑器
+wwansvc.dll WWAN 自动配置服务
+wwapi.dll WWAN API
+wzcdlg.dll Windows 立即连接-闪存配置注册人
+XInput9_1_0.dll XAN 公共控制器
+xmlfilter.dll XML 筛选
+xwizards.dll 可扩展向导管理器模块 无线WAN 连接流
+xwtpdui.dll 用于DUI的可扩展向导类型插件
+xwtpw32.dll 用于Win32的可扩展向导类型插件
+zipfldr.dll 压缩文件夹（zip文件夹）

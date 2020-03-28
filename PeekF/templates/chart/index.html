@@ -1,0 +1,146 @@
+<html class="gr__bootstrap-table_com_cn"><head>
+  <title>Bootstrap Table 演示</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features.">
+  <meta name="keywords" content="table, bootstrap, bootstrap plugin, bootstrap resources, bootstrap table, jQuery plugin">
+  <meta name="author" content="Zhixin Wen, and Bootstrap table contributors">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.5.1/hint.min.css">
+  <link rel="stylesheet" href="/PeekF/static/bootstrap/assets/css/docs.min.css">
+  <link rel="stylesheet" href="/PeekF/static/bootstrap/assets/css/template.css?v=VERSION">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/flexibility@2.0.1/flexibility.js"></script>
+  <script src="/PeekF/static/bootstrap/assets/js/template.js?v=VERSION"></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {window.dataLayer.push(arguments)}
+    gtag('js', new Date())
+    gtag('config', 'UA-132747866-1')
+  </script>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet"><script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script></head>
+<body data-gr-c-s-loaded="true">
+  <div class="header-wrapper">
+    <div class="title-desc">
+      <h2 class="bd-title" id="content">
+        <span>大数据</span>
+      </h2>
+      <p class="bd-lead"><p>使用<code>virtualScroll</code>使虚拟滚动大型数据集（10000行）。</p>
+</p>
+    </div>
+
+	<!--ads-->
+   <div class="header-right">
+      <div id="codefund"><!-- fallback content --></div>
+
+    </div>
+	<!--ads-->
+  </div>
+
+  <div id="example"><script>
+  init({
+    title: '大数据',
+    desc: '使用`virtualScroll`使虚拟滚动大型数据集（10000行）。',
+    links: ['bootstrap-table.min.css'],
+    scripts: ['bootstrap-table.min.js']
+  })
+</script>
+
+
+
+<div class="bootstrap-table bootstrap4">
+      <div class="fixed-table-toolbar"><div class="bs-bars float-left"><div class="toolbar">
+  <button id="load" class="btn btn-secondary">加载10000行</button>
+  <button id="append" class="btn btn-secondary">追加10000行</button>
+  Total rows: <span id="total">20</span>
+</div></div><div class="columns columns-right btn-group float-right"><div class="keep-open btn-group" title="Columns">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-label="Columns" title="Columns">
+        <i class="fa fa-th-list"></i>
+
+        <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right"><label class="dropdown-item"><input type="checkbox" data-field="id" value="0" checked="checked"> <span>ID</span></label><label class="dropdown-item"><input type="checkbox" data-field="name" value="1" checked="checked"> <span>项目名称</span></label><label class="dropdown-item"><input type="checkbox" data-field="price" value="2" checked="checked"> <span>项目价格</span></label></div></div></div></div>
+
+      <div class="fixed-table-container fixed-height" style="height: 342px; padding-bottom: 50px;">
+      <div class="fixed-table-header" style="margin-right: 0px;"><table class="table table-bordered table-hover" style="width: 1154px;"><thead><tr><th style="" data-field="id"><div class="th-inner ">ID</div><div class="fht-cell" style="width: 217.1875px;"></div></th><th style="" data-field="name"><div class="th-inner ">项目名称</div><div class="fht-cell" style="width: 466.421875px;"></div></th><th style="" data-field="price"><div class="th-inner ">项目价格</div><div class="fht-cell" style="width: 466.421875px;"></div></th></tr></thead></table></div>
+      <div class="fixed-table-body">
+      <div class="fixed-table-loading table table-bordered table-hover fixed-table-border" style="top: 50px; width: 1154px;">
+      <span class="loading-wrap">
+      <span class="loading-text">Loading, please wait</span>
+      <span class="animation-wrap"><span class="animation-dot"></span></span>
+      </span>
+      </div>
+      <table id="table" data-toolbar=".toolbar" data-height="400" data-virtual-scroll="true" data-show-columns="true" class="table table-bordered table-hover" style="margin-top: -49px;">
+  <thead><tr><th style="" data-field="id"><div class="th-inner ">ID</div><div class="fht-cell"></div></th><th style="" data-field="name"><div class="th-inner ">项目名称</div><div class="fht-cell"></div></th><th style="" data-field="price"><div class="th-inner ">项目价格</div><div class="fht-cell"></div></th></tr></thead>
+<tbody><tr data-index="0"><td style="">0</td><td style="">Item 0</td><td style="">$0</td></tr><tr data-index="1"><td style="">1</td><td style="">Item 1</td><td style="">$1</td></tr><tr data-index="2"><td style="">2</td><td style="">Item 2</td><td style="">$2</td></tr><tr data-index="3"><td style="">3</td><td style="">Item 3</td><td style="">$3</td></tr><tr data-index="4"><td style="">4</td><td style="">Item 4</td><td style="">$4</td></tr><tr data-index="5"><td style="">5</td><td style="">Item 5</td><td style="">$5</td></tr><tr data-index="6"><td style="">6</td><td style="">Item 6</td><td style="">$6</td></tr><tr data-index="7"><td style="">7</td><td style="">Item 7</td><td style="">$7</td></tr><tr data-index="8"><td style="">8</td><td style="">Item 8</td><td style="">$8</td></tr><tr data-index="9"><td style="">9</td><td style="">Item 9</td><td style="">$9</td></tr><tr data-index="10"><td style="">10</td><td style="">Item 10</td><td style="">$10</td></tr><tr data-index="11"><td style="">11</td><td style="">Item 11</td><td style="">$11</td></tr><tr data-index="12"><td style="">12</td><td style="">Item 12</td><td style="">$12</td></tr><tr data-index="13"><td style="">13</td><td style="">Item 13</td><td style="">$13</td></tr><tr data-index="14"><td style="">14</td><td style="">Item 14</td><td style="">$14</td></tr><tr data-index="15"><td style="">15</td><td style="">Item 15</td><td style="">$15</td></tr><tr data-index="16"><td style="">16</td><td style="">Item 16</td><td style="">$16</td></tr><tr data-index="17"><td style="">17</td><td style="">Item 17</td><td style="">$17</td></tr><tr data-index="18"><td style="">18</td><td style="">Item 18</td><td style="">$18</td></tr><tr data-index="19"><td style="">19</td><td style="">Item 19</td><td style="">$19</td></tr></tbody></table><div class="fixed-table-border" style="height: 0px;"></div></div>
+      <div class="fixed-table-footer" style="display: none;"><table><thead><tr></tr></thead></table></div>
+      </div>
+      <div class="fixed-table-pagination" style="display: none;"></div>
+      </div><div class="clearfix"></div>
+
+<script>
+  var $table = $('#table')
+  var total = 0
+
+  function getData(number, isAppend) {
+    if (!isAppend) {
+      total = 0
+    }
+    var data = []
+    for (var i = total; i < total + number; i++) {
+      data.push({
+        'id': i,
+        'name': 'Item ' + i,
+        'price': '$' + i
+      })
+    }
+    if (isAppend) {
+      total += number
+    } else {
+      total = number
+    }
+    $('#total').text(total)
+    return data
+  }
+
+  function mounted() {
+    $table.bootstrapTable({data: getData(20)})
+
+    $('#load').click(function () {
+      $table.bootstrapTable('load', getData(10000))
+    })
+
+    $('#append').click(function () {
+      $table.bootstrapTable('append', getData(10000, true))
+    })
+  }
+</script>
+</div>
+  <pre class="source-pre"><code id="source" class="html"></code></pre>
+
+
+</body></html>

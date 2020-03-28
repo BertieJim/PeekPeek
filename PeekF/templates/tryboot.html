@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width,initial-scale=1.0" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta content="telephone=no" name="format-detection">
+        <meta content="email=no" name="format-detection">
+
+        <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"></script>
+    <script src="/PeekF/static/bootstrap/dist/js/bootstrap-table.js"></script>
+
+
+        <script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+
+{#    <script src="/PeekF/static/bootstrap/assets/js/vendor/bootstrap-table-treegrid.js"></script>#}
+
+         <script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>
+
+{#   <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.treegrid.min.js"></script>#}
+
+
+        <title>系统管理</title>
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-treegrid/0.2.0/css/jquery.treegrid.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>树形表格 ： Table Treegrid</h1>
+                    </div>
+
+{#            <table id="table">#}
+{#                #}
+{#            </table>#}
+{#            <div class="fixed-table-container fixed-height" style="height: 342px; padding-bottom: 50px;">#}
+        <div class="fixed-table-header" style="margin-right: 20px;margin-left: 20px;">
+
+            <table id="table"
+                   data-toolbar=".toolbar"
+                   data-height="500"
+                   data-virtual-scroll="true"
+                   data-show-columns="true"
+
+                   data-method="get"
+                   data-url="/PeekF/nav/nav_monitor_deal"
+                    data-pagination="true"
+                data-side-pagination="server"
+                data-page-list="[10, 20, 50, 100, 200]"
+                data-search="true" data-mobile-responsive="true"
+                data-show-refresh="true"
+                data-show-toggle="true" data-page-size=20 data-unique-id="asset_id"
+                data-striped="false"
+                   class="table table-bordered table-hover white-space:nowrap overflow:hidden"
+                   style="margin-top: -49px">
+            </table>
+
+
+            <br/>
+        </div>
+{#            </div>#}
+            <div style="width: 50px;white-space: nowrap;display:inline-block;"></div>
+
+<style>
+/*定义类名为.thead-blue的样式*/
+.table .thead-blue th {
+color: #fff;
+    font-size: small;
+background-color: #3195f1;
+border-color: #0d7adf;}
+</style>
+
+    </body>
+
+
+    <script type="text/javascript">
+        var $table = $('#table');
+
+        $table.bootstrapTable('destroy').bootstrapTable({
+{#                data: data,#}
+                url: '/PeekF/nav/nav_monitor_deal',         //请求后台的URL（*）
+                method: 'get',
+                idField: 'id',
+{#                dataType: 'jsonp',#}
+                pagination: true,// 是否显示分页
+                pageSize: 50,
+                pageNumber:1,
+                pageList: [5, 10, 15, 20, 25],
+// nameshow inputval retval inputtype rettype group file childnum  id pid
+
+
+                columns: [
+
+                    {
+                        field: 'nameshow',
+                        title: '动态链接库.函数',
+                        width: 100
+                    },
+                    {
+                        field: 'id',
+                        title: '序号',
+                        width: 3
+                    },
+                    {
+                        field: 'threadn',
+                        title: '线程号',
+                        width: 3
+                    },
+                    {
+                        field: 'inputval',
+                        title: '调用参数',
+                        width: 100,
+                        formatter: function (value, row, index) {
+                            a = '<td><a href="#" data-toggle="popover" title="Example popover" data-placement="right" data-content="memmm">' + value + '</a></td>';
+                            return a;
+                        }
+                    },
+
+
+                    {
+                        field: 'retvar',
+                        title: '返回值',
+                        width: 12
+
+                    },
+
+                    {
+                        field: 'group',
+                        title: '所在文件',
+                        width: 12
+                    },
+
+                    {
+                        field: 'file',
+                        title: '函数功能',
+                        width: 12,
+                        formatter: function (value, row, index) {
+                            a = '<div style="width: 300px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + value + '</span></div>';
+
+                            return a;
+                        }
+                    }
+
+                ],
+                theadClasses: "thead-blue",//设置thead-blue为表头样式
+                //在哪一列展开树形
+                treeShowField: 'nameshow',
+                //指定父id列
+                parentIdField: 'pid',
+
+
+                onResetView: function(data) {
+                    //console.log('load');
+                    $table.treegrid({
+                        initialState: 'collapsed', // 所有节点都折叠
+                        //initialState: 'expanded',// 所有节点都展开，默认展开
+                        treeColumn: 0,
+                        // expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+{#                        expanderCollapsedClass: 'glyphicon glyphicon-plus',#}
+                        onChange: function() {
+                            $table.bootstrapTable('resetWidth');
+                        }
+                    });
+                    //只展开树形的第一级节点
+                    $table.treegrid('getRootNodes').treegrid('expand');
+
+
+                }
+            });
+
+
+    </script>
+</html>

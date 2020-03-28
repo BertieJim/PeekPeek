@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PeekF: Peek for Wine</title>
+
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8">
+
+    <script src="../static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <link rel="stylesheet" href="../static/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../static/bootstrap/assets/js/vendor/jquery.min.js"></script>
+	<script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</head>
+  <body>
+
+
+    <button type="button" class="btn btn-default" title="Popover title"
+			data-container="body" data-toggle="popover" data-placement="right"
+			data-content="左侧的 Popover 中的一些内容">
+		左侧的 Popover
+	</button>
+
+        <script>
+        $(function () {
+            $("[data-toggle='popover']").popover();
+        });
+        </script>
+
+<button type="button" class="btn btn-default" title="Popover title"
+			data-container="body" data-toggle="popover" data-placement="right"
+			data-content="左侧的 Popover 中的一些内容">
+		左侧的 Popover
+	</button>
+
+        <script>
+        $(function () {
+            $("[data-toggle='popover']").popover();
+        });
+        </script>
+
+   <a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面
+mm</a>
+
+
+
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PeekF</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/PeekF/index/">简 介</a></li>
+               <li ><a href="/PeekF/nav/nav_conf">配 置</a></li>
+
+              <li class="active"><a href="/PeekF/nav/nav_monitor">监 控</a></li>
+              <li><a href="/PeekF/nav/nav_compare">对 比</a></li>
+              <li class="dropdown">
+                <a href="/PeekF/nav/nav_vis" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">可视化 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/PeekF/nav/nav_vis">调用图</a></li>
+                  <li><a href="/PeekF/nav/nav_vis_anay">调用分析</a></li>
+
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">历史记录 <span class="sr-only">(current)</span></a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+    </div>
+    <div class="container">
+        <ul id="myTab" class="nav nav-tabs">
+        <li ><a href="#home" data-toggle="tab">筛选过滤</a></li>
+        <li class="active"><a href="#ios" data-toggle="tab">实时监控</a></li>
+
+        </ul>
+        <div id="myTabContent" class="tab-content">
+                                            <br>
+
+         <div class="tab-pane fade in" id="home">
+
+           <div class="container" id="accordion">
+             <h4>请取消勾选不显示的动态链接库或函数名</h4>
+             {% for dllname,fn in retFilterFunc_.items %}
+
+                  <div class = "row">
+                     <div class="col-md-6" style="height: 30px">
+                        <label class="checkbox-inline" checked=checked>
+
+                            <input  style="size: 30px " value="{{ dllname }}" type="checkbox" name="tags"/>{{ dllname }}
+                        </label>
+                         <a  data-toggle="collapse"
+                                data-target="#demo_{{ dllname }}">
+
+                             <span class="glyphicon glyphicon-hand-down"></span>
+                         </a>
+                     </div>
+
+
+                  </div>
+
+{#                     <br>#}
+                  <div id="demo_{{ dllname }}" class="collapse">
+                     {% for i in fn %}
+                     <div class = "row " style="margin-left: 10px">
+                        <div class = "col-md-6">
+
+                             <label class="checkbox-inline">
+                                <input value="{{ i }}" type="checkbox" name="tags"/>{{ i }}
+                             </label>
+                          </div>
+                     </div>
+                     {%endfor  %}
+                  </div>
+             {% endfor %}
+          </div>
+         </div>
+       
+
+        <div class="tab-pane fade in active" id="ios">
+            <div class="container">
+                <h4> 请看</h4>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>线程号</th>
+                        <th>链接库.函数名(调用总数)</th>
+                        <th>调用值</th>
+                        <th>返回值</th>
+                        <th>所在分组</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><span class="badge pull-right">42</span>2</td>
+                        <td> <a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面
+mm</a></td>
+                        <td>2</td>
+                        <td>2</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
+{#    <script src="../static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>#}
+{#    <script src="../static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>#}
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  </body>
+</html>

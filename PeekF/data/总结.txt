@@ -1,0 +1,125 @@
+
+
+1.使用现有的bootstrap-grid-table
+2.大数据用json传递
+3.用js加载数据，似乎可行
+4.学习js加载数据即可
+5.固定表头暂不需要，可以实验一下
+
+
+
+
+
+
+固定列宽：
+1.table-layout: fixed
+2.white-space:nowrap以及overflow:hidden
+
+
+title: '还款状态',
+                formatter: function(value,row,index) {
+                    var a = "";
+                        if(value == "未还清") {
+                            var a = '<span style="color:#c12e2a;"><i class="fa fa-times-circle-o" aria-hidden="true"></i>'+value+'</span>';
+                        }else if(value == "已还清"){
+                            var a = '<span style="color:#3e8f3e"><i class="fa fa-check-circle-o" aria-hidden="true"></i>'+value+'</span>';
+                        }
+                        return a;
+                },
+
+————————————————
+版权声明：本文为CSDN博主「ChaleMa」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/sinat_41690228/article/details/79919630
+
+
+
+def query_order(request):
+    data = request.POST   # 获取 bootstrap-table post请求的数据，直接POST获取！
+    queryResult = db_queryOrder(data)   #去数据库查询
+    if queryResult == 0:
+        return HttpResponse('0')
+
+    elif queryResult == -1:
+        return HttpResponse('-1')
+
+    else:
+        '''服务端分页时，前端需要传回：limit（每页需要显示的数据量），offset（分页时 数据的偏移量，即第几页）'''
+        '''mysql 利用 limit语法 进行分页查询'''
+        '''服务端分页时，需要返回：total（数据总量），rows（每行数据）  如： {"total": total, "rows": []}'''
+        returnData = {"rows": []}  #########非常重要############
+        with open("slg/others/country", "r") as f:
+            datas = json.loads(f.read())  # 直接读出来，是dic对象，用key，value获取。。。上面的是转换为 对象了，可以用 “.” 获取
+        '''遍历 查询结果集'''
+        for results in queryResult:
+            '''遍历 country.json 输出 订单状态'''
+            for data in datas['order']:
+                if data['stateNum'] == str(results['purchasestate']):
+                    orderStateResult = data['stateResult']
+
+            '''遍历 country.json 输出 国家名称'''
+            for data in datas['country']:
+                if data['shorthand'] == results['countrycode']:
+                    countryName = data['name']
+
+            returnData['rows'].append({
+                "gameorderid": results['gameorderid'],
+                "orderid": results['orderid'],
+                "nickname": results['nickname'],
+                "gameName": "Wrath",
+                "PurchaseTimes": results['purchasetimes'],
+                "PriceAmount": str(results['priceamount']),
+                "PurchaseState": orderStateResult,
+                "PurchaseTime": time.strftime("%Y-%m-%d %H:%M:%S %Z", time.gmtime(results['purchasetime'])),  #将 时间戳 转换为 UTC时间
+                "AccountId": results['accountid'],
+                "CountryCode": countryName
+            })
+        #最后用dumps包装下，json.dumps({"rows": [{"gameorderid": 1}, {"gameorderid": 22}]})
+        return HttpResponse(json.dumps(returnData))
+
+
+
+
+
+
+
+        <div  class="panel-footer" style="background-color: #ffffff; height: 490px;overflow: auto;" >
+
+                <table class="table table-bordered table-striped table-hover"
+                 data-toggle="table"
+                 data-pagination="false"
+                   data-pagination-loop="false"
+                   data-search="true"
+                   data-show-pagination-switch="false"
+                   data-show-columns="true"
+                   data-page-number="1"
+                   data-page-size="5"
+                   data-page-list="[5,10,25]"
+                   data-click-to-select="true"
+                   data-single-select="true"
+                   data-striped="true"  >
+
+
+                    <thead>
+                    <tr>
+                        <th>线程号</th>
+                        <th><span class="badge pull-right">调用数</span>动态链接库名.函数名</th>
+                        <th>调用参数（函数参数原型）</th>
+                        <th>返回值（函数返回值原型）</th>
+                        <th>所在分组</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    {% for i in allInfo %}
+                    <tr>
+                        <td>10</td>
+                        <td rowspan=$rowspan style='vertical-align: middle;text-align: left;'><span class="badge pull-right">{{ i.7 }}</span>{{  i.0}}</td>
+                        <td><a href="#" data-toggle="popover" title="Example popover" data-placement="right" data-content="{{ i.3 }}">{{  i.1}}</a></td>
+                        <td><a href="#" data-toggle="popover" title="Example popover" data-placement="right" data-content="{{ i.4 }}">{{ i.2 }}</a></td>
+                        <td>{{ i.5 }}</td>
+
+                    </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>

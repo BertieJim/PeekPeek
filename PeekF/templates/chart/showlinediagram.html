@@ -1,80 +1,177 @@
-<html>
-<head>
-<meta charset="UTF-8" />
-<title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
-<script src="../static/bootstrap/assets/js/vendor/jquery.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
+<html class="gr__bootstrap-table_com_cn"><head>
+  <title>Bootstrap Table 演示</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features.">
+  <meta name="keywords" content="table, bootstrap, bootstrap plugin, bootstrap resources, bootstrap table, jQuery plugin">
+  <meta name="author" content="Zhixin Wen, and Bootstrap table contributors">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.5.1/hint.min.css">
+  <link rel="stylesheet" href="/PeekF/static/bootstrap/assets/css/docs.min.css">
+  <link rel="stylesheet" href="/PeekF/static/bootstrap/assets/css/template.css?v=VERSION">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/flexibility@2.0.1/flexibility.js"></script>
+{#  <script src="/PeekF/static/bootstrap/assets/js/template.js?v=VERSION"></script>#}
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {window.dataLayer.push(arguments)}
+    gtag('js', new Date())
+    gtag('config', 'UA-132747866-1')
+  </script>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style>
+<link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
+<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 </head>
-<body>
-<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
-<script language="JavaScript">
-$(document).ready(function() {
-   var title = {
-       text: '月平均气温'
-   };
-   var subtitle = {
-        text: 'Source: runoob.com'
-   };
-   var xAxis = {
-       categories: ['一月', '二月', '三月', '四月', '五月', '六月'
-              ,'七月', '八月', '九月', '十月', '十一月', '十二月']
-   };
-   var yAxis = {
-      title: {
-         text: 'Temperature (\xB0C)'
-      },
-      plotLines: [{
-         value: 0,
-         width: 1,
-         color: '#808080'
-      }]
-   };
+<body data-gr-c-s-loaded="true">
+  <div class="header-wrapper">
+    <div class="title-desc">
+      <h2 class="bd-title" id="content">
+        <span>大数据</span>
+      </h2>
+      <p class="bd-lead"><p>使用<code>virtualScroll</code>使虚拟滚动大型数据集（10000行）。</p>
 
-   var tooltip = {
-      valueSuffix: '\xB0C'
-   }
+    </div>
 
-   var legend = {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'middle',
-      borderWidth: 0
-   };
+	<!--ads-->
+   <div class="header-right">
+      <div id="codefund"><!-- fallback content --></div>
 
-   var series =  [
-      {
-         name: 'Tokyo',
-         data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
-            26.5, 23.3, 18.3, 13.9, 9.6]
-      },
-      {
-         name: 'New York',
-         data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,
-            24.1, 20.1, 14.1, 8.6, 2.5]
-      },
-      {
-         name: 'Berlin',
-         data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6,
-            17.9, 14.3, 9.0, 3.9, 1.0]
-      },
-      {
-         name: 'London',
-         data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0,
-            16.6, 14.2, 10.3, 6.6, 4.8]
-      }
-   ];
+    </div>
+	<!--ads-->
+  </div>
 
-   var json = {};
-
-   json.title = title;
-   json.subtitle = subtitle;
-   json.xAxis = xAxis;
-   json.yAxis = yAxis;
-   json.tooltip = tooltip;
-   json.legend = legend;
-   json.series = series;
-
-   $('#container').highcharts(json);
-});
+  <div id="example"><script>
+  init({
+    title: '大数据',
+    desc: '使用`virtualScroll`使虚拟滚动大型数据集（10000行）。',
+    links: ['bootstrap-table.min.css'],
+    scripts: ['bootstrap-table.min.js']
+  })
 </script>
-</body>
+
+
+
+<div class="bootstrap-table bootstrap4">
+      <div class="fixed-table-toolbar">
+          <div class="bs-bars float-left">
+              <div class="toolbar">
+                 <button id="load" class="btn btn-secondary" onclick="lload()">加载10000行</button>
+                 <button id="append" class="btn btn-secondary">追加10000行</button>
+                 Total rows: <span id="total">20</span>
+
+              </div>
+          </div>
+
+      </div>
+
+      <div class="fixed-table-container fixed-height" style="height: 342px; padding-bottom: 50px;">
+        <div class="fixed-table-header" style="margin-right: 0;">
+
+            <table id="table" data-toolbar=".toolbar" data-height="400" data-virtual-scroll="true" data-show-columns="true" class="table table-bordered table-hover" style="margin-top: -49px;">
+                <thead>
+                <tr>
+                    <th style="" data-field="id">
+                        <div class="th-inner ">ID</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                    <th style="" data-field="name">
+                        <div class="th-inner ">项目名称</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                    <th style="" data-field="price">
+                        <div class="th-inner ">项目价格</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                </tr>
+                </thead>
+{##}
+            </table>
+            <div class="fixed-table-border" style="height: 0px;">
+
+            </div>
+        </div>
+        <div class="fixed-table-footer" style="display: none;">
+            <table>
+                <thead><tr></tr></thead>
+            </table>
+        </div>
+      </div>
+      <div class="fixed-table-pagination" style="display: none;">
+
+      </div>
+</div>
+<div class="clearfix">
+
+</div>
+
+<script>
+  var $table = $('#table');
+  var total = 0;
+
+  function getData(number, isAppend) {
+    if (!isAppend) {
+      total = 0
+    }
+    var data = [];
+    for (var i = total; i < total + number; i++) {
+      data.push({
+        'id': i,
+        'name': 'Item ' + i,
+        'price': '$' + i
+      })
+    }
+    if (isAppend) {
+      total += number
+    } else {
+      total = number
+    }
+    $('#total').text(total);
+    return data
+  }
+
+  function mounted() {
+    $table.bootstrapTable({data: getData(20)});
+
+    $('#load').click(function () {
+      $table.bootstrapTable('load', getData(10000))
+    });
+
+    $('#append').click(function () {
+      $table.bootstrapTable('append', getData(10000, true))
+    })
+  }
+  function lload(){
+      $table.bootstrapTable({data: getData(20)});
+
+      $table.bootstrapTable('load', getData(10000))
+  }
+</script>
+</div>
+{#  <pre class="source-pre"><code id="source" class="html"></code></pre>#}
+
+
+</body></html>

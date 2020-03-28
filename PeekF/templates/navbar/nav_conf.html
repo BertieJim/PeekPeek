@@ -12,21 +12,22 @@
     <title>PeekF: Peek for Wine</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-          <link href="../static/bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/PeekF/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+          <link href="/PeekF/static/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../static/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/PeekF/static/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/bootstrap/navbar.css" rel="stylesheet">
+    <link href="/PeekF/static/bootstrap/navbar.css" rel="stylesheet">
+      <link href="/PeekF/static/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
 
-{#    <link href="../static/bootstrap/sticky-footer.css" rel="stylesheet">#}
+{#    <link href="/PeekF/static/bootstrap/sticky-footer.css" rel="stylesheet">#}
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="/PeekF/static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -54,15 +55,15 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="/PeekF/index/">简 介</a></li>
-              <li class="active"><a href="#">配 置</a></li>
+               <li class="active"><a href="/PeekF/nav/nav_conf">配 置</a></li>
 
-              <li><a href="#">监 控</a></li>
-              <li><a href="#">对 比</a></li>
+              <li><a href="/PeekF/nav/nav_monitor">监 控</a></li>
+              <li><a href="/PeekF/nav/nav_compare">对 比</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">可视化 <span class="caret"></span></a>
+                <a href="/PeekF/nav/nav_vis" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">可视化 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">调用图</a></li>
-                  <li><a href="#">调用分析</a></li>
+                  <li><a href="/PeekF/nav/nav_vis">调用图</a></li>
+                  <li><a href="/PeekF/nav/nav_vis_anay">调用分析</a></li>
 
                 </ul>
               </li>
@@ -90,7 +91,14 @@
                <input id='location' class="form-control" style="float: left" onclick="$('#i-file').click();">
                    <label class="input-group-btn">
                        <input type="button" id="i-check" style="float:left;" value="浏览文件" class="btn btn-primary" onclick="$('#i-file').click();">
-                       <input type="button" id="i-check" style="margin-left:10px;" value="上传文件" class="btn btn-primary" onclick="$('#i-file').click();">
+                       <input type="button" id="myAlert" style="margin-left:10px;" value="确认配置" class="btn btn-primary">
+                       <script type="text/javascript">
+                        $(function(){
+                            $("#myAlert").bind('closed.bs.alert', function () {
+                            alert("配置成功，请直接运行Wine程序。");
+                        });
+                            });
+                        </script>
 
                    </label>
                </div>
@@ -103,14 +111,47 @@
 
         <div class="blog-post">
 
-        <li style="font-size:18px; margin-bottom: 20px;color: #555; ">进行手动配置</li>
+        <li style="font-size:18px; margin-bottom: 20px;color: #555; ">进行手动配置
+                    <input type="button" id="myAlert" style="margin-left:10px;" value="确认配置" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">⚠️配置成功</h4>
+                        </div>
+                        <div class="modal-body">配置成功，请直接运行Wine程序。</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+</div>
+                       </li>
         </div>
+        <div style="margin-left:20px">
+            {%for dllname,funcname in dllandallfuncs.items %}
+            <div style="float: left">
+        <select class="selectpicker" multiple data-live-search="true" title={{ dllname.0 }} >
+            {% for i in funcname %}
+            <option >{{ i }}</option>
+            {%endfor%}
+        </select>
+            </div><p style="float: left; margin-bottom: 20px;color: #0f0f0f;size: 40px ">&nbsp;&nbsp;&nbsp;{{ dllname.1}}</p>
+        <br>
+                    <br>
+
+
+
+        {%endfor%}
+        </div>
+
     </div>
 
 
     </div> <!-- /container -->
 
-     <footer style="background-color: #f5f5f5;position: absolute;bottom:0px;width: 100%;height: 60px;" >
+     <footer style="background-color: #f5f5f5;bottom:0;width: 100%;height: 60px;" >
       <div class="container" >
           <br>
         <p class="text-muted">遇到问题，请联系作者:joey_b@126.com</p>
@@ -121,15 +162,17 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/PeekF/static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../static/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="Content/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <script src="Content/bootstrap-select/js/i18n/defaults-zh_CN.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="/PeekF/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/PeekF/static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

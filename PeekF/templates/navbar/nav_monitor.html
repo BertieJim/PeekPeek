@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PeekF: Peek for Wine</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/PeekF/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+{#      <link href="/PeekF/static/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">#}
+{#      <link rel="stylesheet" href="/PeekF/static/bootstrap/dist/css/bootstrap-theme.min.css">#}
+
+{#  <link rel="stylesheet" href="/PeekF/static/bootstrap/dist/css/bootstrap-editable.css">#}
+    <link rel="stylesheet" href="/PeekF/static/bootstrap/dist/css/bootstrap-table.min.css">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+{#    <link href="/PeekF/static/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">#}
+      <link href="/PeekF/static/bootstrap/dist/css/jquery.treegrid.min.css" rel="stylesheet">
+
+{#      <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-treegrid/0.2.0/css/jquery.treegrid.min.css">#}
+
+
+    <!-- Custom styles for this template -->
+    <link href="/PeekF/static/bootstrap/navbar.css" rel="stylesheet">
+
+{#    <link href="/PeekF/static/bootstrap/sticky-footer.css" rel="stylesheet">#}
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+{#    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->#}
+{#    <script src="/PeekF/static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>#}
+
+      <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"></script>
+{#      <script src="/PeekF/static/bootstrap/dist/js/bootstrap-editable.min.js"></script>#}
+    <script src="/PeekF/static/bootstrap/dist/js/bootstrap-table.js"></script>
+      <script src="/PeekF/static/bootstrap/assets/js/jquery.treegrid.min.js"></script>
+
+
+      <script src="https://cdn.bootcss.com/bootstrap-table/1.1.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+{#    <script src="/PeekF/static/bootstrap/assets/js/vendor/bootstrap-table-treegrid.js"></script>#}
+{#      <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"></script>#}
+{#      <script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>#}
+
+    <!-- JavaScript -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+{#      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>#}
+{#      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>#}
+    <![endif]-->
+  </head>
+
+
+
+
+
+  <body>
+
+    <script>
+        $(function () {
+            $("[data-toggle='popover']").popover();
+        });
+    </script>
+
+
+
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PeekF</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/PeekF/index/">简 介</a></li>
+               <li ><a href="/PeekF/nav/nav_conf">配 置</a></li>
+
+              <li class="active"><a href="/PeekF/nav/nav_monitor">监 控</a></li>
+              <li><a href="/PeekF/nav/nav_compare">对 比</a></li>
+              <li class="dropdown">
+                <a href="/PeekF/nav/nav_vis" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">可视化 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/PeekF/nav/nav_vis">调用图</a></li>
+                  <li><a href="/PeekF/nav/nav_vis_anay">调用分析</a></li>
+
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">历史记录 <span class="sr-only">(current)</span></a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+    </div>
+
+    <div class="container">
+        <ul id="myTab" class="nav nav-tabs">
+        <li ><a href="#home" data-toggle="tab">筛选过滤</a></li>
+        <li class="active"><a href="#ios" data-toggle="tab">实时监控</a></li>
+
+        </ul>
+        <div id="myTabContent" class="tab-content">
+                                            <br>
+
+         <div class="tab-pane fade in" id="home">
+
+           <div class="container" id="accordion">
+             <h4>请取消勾选不显示的动态链接库或函数名</h4>
+             {% for dllname,fn in retFilterFunc_.items %}
+
+                  <div class = "row">
+                     <div class="col-md-6" style="height: 30px">
+                        <label class="checkbox-inline" checked=checked>
+
+                            <input  style="size: 30px " value="{{ dllname }}" type="checkbox" name="tags"/>{{ dllname }}
+                        </label>
+                         <a  data-toggle="collapse"
+                                data-target="#demo_{{ dllname }}">
+
+                             <span class="glyphicon glyphicon-hand-down"></span>
+                         </a>
+                     </div>
+
+
+                  </div>
+
+{#                     <br>#}
+                  <div id="demo_{{ dllname }}" class="collapse">
+                     {% for i in fn %}
+                     <div class = "row " style="margin-left: 10px">
+                        <div class = "col-md-6">
+
+                             <label class="checkbox-inline">
+                                <input value="{{ i }}" type="checkbox" name="tags"/>{{ i }}
+                             </label>
+                          </div>
+                     </div>
+                     {%endfor  %}
+                  </div>
+             {% endfor %}
+          </div>
+         </div>
+       
+        <div class="tab-pane fade in active" id="ios">
+            <div class="container"  >
+             <h1><a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面请悬停在我的上面请悬停在我的上面请悬停在我的上面mm</a></h1>
+            </div>
+
+{#            <table id="table">#}
+{#                #}
+{#            </table>#}
+{#            <div class="fixed-table-container fixed-height" style="height: 342px; padding-bottom: 50px;">#}
+        <div class="fixed-table-header" style="margin-right: 20px;margin-left: 20px;">
+
+            <table id="table"
+                   data-toolbar=".toolbar"
+                   data-height="500"
+                   data-virtual-scroll="true"
+                   data-show-columns="true"
+                   data-method="get"
+                   data-url="/PeekF/nav/nav_monitor_deal"
+                    data-pagination="true"
+                data-side-pagination="server"
+                data-page-list="[10, 20, 50, 100, 200]"
+                data-search="true" data-mobile-responsive="true"
+                data-show-refresh="true"
+                data-show-toggle="true" data-page-size=20 data-unique-id="asset_id"
+                data-striped="false"
+                   class="table table-bordered table-hover"
+                   style="margin-top: -49px; table-layout: fixed">
+            </table>
+
+
+            <br/>
+        </div>
+
+            </div>
+    </div>
+    </div>
+
+
+
+     <footer style="background-color: #f5f5f5;bottom:0;width: 100%;height: 60px;" >
+      <div class="container" >
+          <br>
+        <p class="text-muted">遇到问题，请联系作者:joey_b@126.com</p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/PeekF/static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="/PeekF/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/PeekF/static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+
+  <script type="text/javascript">
+        var $table = $('#table');
+
+        $table.bootstrapTable('destroy').bootstrapTable({
+{#                data: data,#}
+                url: '/PeekF/nav/nav_monitor_deal',         //请求后台的URL（*）
+                method: 'get',
+{#                idField: 'id',#}
+{#                dataType: 'jsonp',#}
+                pagination: true,// 是否显示分页
+                pageSize: 50,
+                pageNumber:1,
+                pageList: [5, 10, 15, 20, 25],
+// nameshow inputval retval inputtype rettype group file childnum  id pid
+
+
+                columns: [
+
+                    {
+                        field: 'nameshow',
+                        title: '动态链接库.函数',
+{#                        width: 300#}
+                    },
+                    {
+                        field: 'id',
+                        title: '序号',
+                        width: 70
+                    },
+                    {
+                        field: 'threadn',
+                        title: '线程号',
+                        width: 70
+                    },
+                    {
+                        field: 'inputval',
+                        title: '调用参数',
+                        width: 100,
+                        formatter: function (value, row, index) {
+                            a = '<div style="width: 100px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + value + '</span></div>';
+
+                            return a;
+{#                        formatter: function (value, row, index) {#}
+{#                            a = '<td><a href="#" data-toggle="popover" title="Example popover" data-placement="right" data-content="memmm">' + value + '</a></td>';#}
+{#                            return a;#}
+                        }
+
+                    },
+
+
+                    {
+                        field: 'retvar',
+                        title: '返回值',
+                        width: 100,
+                        formatter: function (value, row, index) {
+                            a = '<div style="width: 100px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + value + '</span></div>';
+
+                            return a;
+                        }
+
+                    },
+
+                    {
+                        field: 'group',
+                        title: '所在文件',
+                        width: 70,
+                        formatter: function (value, row, index) {
+                            a = '<div style="width: 70px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + value + '</span></div>';
+
+                            return a;
+                        }
+                    },
+
+                    {
+                        field: 'file',
+                        title: '函数功能',
+                        width: 200,
+                        formatter: function (value, row, index) {
+                            a = '<div style="width: 200px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + value + '</span></div>';
+
+                            return a;
+                        }
+                    }
+
+                ],
+{#                theadClasses: "thead-blue",//设置thead-blue为表头样式#}
+                //在哪一列展开树形
+                treeShowField: 'nameshow',
+                //指定父id列
+                parentIdField: 'pid',
+
+                onResetView: function(data) {
+                    //console.log('load');
+                    $table.treegrid({
+                        initialState: 'collapsed', // 所有节点都折叠
+                        //initialState: 'expanded',// 所有节点都展开，默认展开
+                        treeColumn: 0,
+                        // expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+{#                        expanderCollapsedClass: 'glyphicon glyphicon-plus',#}
+                        onChange: function() {
+                            $table.bootstrapTable('resetWidth');
+                        }
+
+                    });
+                    //只展开树形的第一级节点
+                    $table.treegrid('getRootNodes').treegrid('expand');
+
+
+                }
+            });
+
+
+    </script>
+
+
+</html>

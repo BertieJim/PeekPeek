@@ -4,14 +4,42 @@
 
 <head>
 
-    <title></title>
-
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PeekF: Peek for Wine</title>
+
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8">
+
+        <script src="../static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
+
+		<link rel="stylesheet" href="../static/bootstrap/dist/css/bootstrap.min.css">
+    		<link rel="stylesheet" href="../static/bootstrap/dist/css/bootstrap-theme.min.css">
+
+	<script src="../static/bootstrap/assets/js/vendor/jquery.min.js"></script>
+	<script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
 
 </head>
 
  
 <body>
+
+<a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面
+mm</a>
 
 <form action="/PeekF/index/" method="post" enctype="multipart/form-data">
 
@@ -45,13 +73,26 @@
 
      <tr>
 
-        <td>{{a.id|safe}}</td><td>{{a.name|safe}}</td><td>{{a.age|safe}}</td>
+        <td><a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面
+mm</a></td><td>{{a.group|safe}}</td><td>{{a.age|safe}}</td>
 
      </tr>
 
     {%endfor%}
 
 </table>
+<button type="button" class="btn btn-default" title="Popover title"
+			data-container="body" data-toggle="popover" data-placement="right"
+			data-content="左侧的 Popover 中的一些内容">
+		左侧的 Popover
+	</button>
+
+        <script>
+        $(function () {
+            $("[data-toggle='popover']").popover();
+        });
+        </script>
 
 </body>
 
