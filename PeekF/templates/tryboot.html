@@ -9,6 +9,8 @@
         <meta content="black" name="apple-mobile-web-app-status-bar-style">
         <meta content="telephone=no" name="format-detection">
         <meta content="email=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
         <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"></script>
     <script src="/PeekF/static/bootstrap/dist/js/bootstrap-table.js"></script>
@@ -17,8 +19,15 @@
         <script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
 
 {#    <script src="/PeekF/static/bootstrap/assets/js/vendor/bootstrap-table-treegrid.js"></script>#}
+                  <script src="/PeekF/static/bootstrap/assets/js/jquery.treegrid.min.js"></script>
 
-         <script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>
+
+{#         <script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>#}
+        <script>
+        $(function () {
+            $("[data-toggle='popover']").popover();
+        });
+    </script>
 
 {#   <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.treegrid.min.js"></script>#}
 
@@ -31,7 +40,11 @@
 
     <body>
         <div class="container">
-            <h1>树形表格 ： Table Treegrid</h1>
+            <h1>
+                树形表格 ： Table Treegrid</h1>
+             <h1><a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面
+mm</a></h1>
                     </div>
 
 {#            <table id="table">#}
@@ -113,7 +126,7 @@ border-color: #0d7adf;}
                     {
                         field: 'inputval',
                         title: '调用参数',
-                        width: 100,
+                        width: 60,
                         formatter: function (value, row, index) {
                             a = '<td><a href="#" data-toggle="popover" title="Example popover" data-placement="right" data-content="memmm">' + value + '</a></td>';
                             return a;
@@ -161,7 +174,7 @@ border-color: #0d7adf;}
                         initialState: 'collapsed', // 所有节点都折叠
                         //initialState: 'expanded',// 所有节点都展开，默认展开
                         treeColumn: 0,
-                        // expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+{#                         expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式#}
 {#                        expanderCollapsedClass: 'glyphicon glyphicon-plus',#}
                         onChange: function() {
                             $table.bootstrapTable('resetWidth');

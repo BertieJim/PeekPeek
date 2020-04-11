@@ -75,5 +75,20 @@ def main():
     # pd.to_pickle(m,"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/DLLNameOnly.pkl")
 
 
+def main3():
+    allthread = pd.read_pickle("/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_allthread.pkl")
+    temp = []
+    temp2 = []
+
+    for i in allthread.keys():
+        temp.append(i)
+    print(" ".join(temp[16:-1]))
+
+    for i in allthread.keys():
+        temp2.append(str(allthread[i]))
+
+    print(" ".join(temp2[16:-1]))
+    print(len(temp))
+
 if __name__ == '__main__':
-    main2()
+    main3()

@@ -42,6 +42,41 @@ class ClangWineFunc(models.Model):
         unique_together = (('func_name', 'dll_name'),)
 
 
+
+class BigBigtext(models.Model):
+    linenum =  models.IntegerField(primary_key=True)
+    id = models.IntegerField()
+    pid = models.IntegerField()
+    childnum = models.CharField(max_length=10, blank=True, null=True)
+    threadn = models.CharField(max_length=10)
+    processn = models.CharField(max_length=10)
+
+    nameshow = models.CharField(max_length=100, blank=True, null=True)
+    inputval = models.CharField(max_length=2000, blank=True, null=True)
+    retval = models.CharField(max_length=2000, blank=True, null=True)
+    inputtype = models.CharField(max_length=2000, blank=True, null=True)
+    rettype = models.CharField(max_length=2000, blank=True, null=True)
+    group = models.CharField(max_length=500, blank=True, null=True)
+    file = models.CharField(max_length=100, blank=True, null=True)
+
+
+class originaltext(models.Model):
+    linenum =  models.IntegerField(primary_key=True)
+    id = models.IntegerField()
+    pid = models.IntegerField()
+    childnum = models.CharField(max_length=10, blank=True, null=True)
+    threadn = models.CharField(max_length=10)
+    processn = models.CharField(max_length=10)
+    nameshow = models.CharField(max_length=100, blank=True, null=True)
+    inputval = models.CharField(max_length=2000, blank=True, null=True)
+    retval = models.CharField(max_length=2000, blank=True, null=True)
+    inputtype = models.CharField(max_length=2000, blank=True, null=True)
+    rettype = models.CharField(max_length=2000, blank=True, null=True)
+    group = models.CharField(max_length=500, blank=True, null=True)
+    file = models.CharField(max_length=100, blank=True, null=True)
+
+
+
 class Funcgroup(models.Model):
     funcname = models.CharField(primary_key=True, max_length=100)
     dllname = models.CharField(max_length=50)

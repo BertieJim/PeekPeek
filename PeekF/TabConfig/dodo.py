@@ -1,4 +1,5 @@
 
+
 import treelib
 import re
 import random
@@ -15,7 +16,94 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PeekPeek.settings")
 django.setup()
 from PeekF.models import *
 
-def readPeefF(funcglobe,f1="/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/screenshot_trace_notfixed.txt"):
+not_thread = '0009'
+ed_thread = '0009'
+def printit(ed_root):
+
+    print(str(ed_root.processn)+str(ed_root.id)
+    +" "+str( ed_root.nameshow)
+    +" "+str(ed_root.linenum)
+    +" "+str(ed_root.childnum)
+    +" "+str(ed_root.rettype)
+    +" "+str(ed_root.retval)
+    +" "+str(ed_root.inputtype)
+    +" "+str(ed_root.inputval)
+    +" "+str(ed_root.file)
+    +" "+str(ed_root.pid)
+    +" "+str(ed_root.group))
+
+def retFuncinfo():
+    f = open("/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/strip_funcname.txt")
+    lines = f.readlines()
+    alldlls = dict()
+    func_info = dict()
+    for i in lines:
+        funcname = i.split()[0]
+        dllname = i.split()[1]
+        # print(funcname,dllname)
+        if dllname not in alldlls.keys():
+            alldlls[dllname] = []
+
+        alldlls[dllname].append(funcname)
+
+        result = ClangWineFunc.objects.filter(func_name=funcname)
+        result2 = Funcgroup.objects.filter(funcname=funcname)
+        arr = ["","","",""]
+        # print('3')
+        if(len(result) != 1):
+            print("wrong1")
+            # print(funcname)
+            # input()
+
+        else:
+            for i in result:
+                m = i.file_name
+                c = m.split('_')
+                d = "/".join(c)
+                arr = [i.var_type, i.ret_type, 'dlls/'+d+'.c',""]
+            # print(arr)
+        # print('4')
+        # if(funcname == 'CreateFontIndirectW'):
+        #     www = 'www'
+        if (len(result2) != 1):
+            if(len(result2) == 0):
+                funcnew = funcname[:-1]
+                result2 = Funcgroup.objects.filter(funcname=funcnew)
+                if(len(result2) != 1):
+                    print("wrong3")
+                    # print(funcname)
+                    # input()
+            else:
+                print("wrong4")
+                # print(funcname)
+                # input()
+        if (len(result2) == 1):
+            for i in result2:
+                if(i.group0 != None):
+                    arr[3] = i.group0
+                if (i.group1 != None):
+                    arr[3] += '/'+i.group1
+                if (i.group2 != None):
+                    arr[3] += '/' + i.group2
+                if (i.group3 != None):
+                    arr[3] += '/' + i.group3
+                if (i.group4 != None):
+                    arr[3] += '/' + i.group4
+                if (i.group5 != None):
+                    arr[3] += '/' + i.group5
+
+                # print(arr)
+                # input()
+        # print('5')
+
+
+        func_info[funcname] = arr
+
+
+
+    return func_info
+
+def readPeefF(funcglobe,f1="/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/screenshot_trace_notfixed_0009.txt"):
     bigbigText = {"total": 0,'rows':[]}
     # bigbigText = ["funcname","|-dll.funcname|",type,type]
 
@@ -48,6 +136,7 @@ def readPeefF(funcglobe,f1="/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/sc
     allthread = {}
     for line in tqdm(lines):
         numnum += 1
+
         if "CALL" in line:
 
             linenum += 1
@@ -138,20 +227,7 @@ def readPeefF(funcglobe,f1="/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/sc
             if funcname not in funcglobe:
                 continue
 
-            # try:
-            #     indent.pop()
-            # except IndexError:
-            #     print(linenum)
-            #     print('333333')
-            #     for i in bigger:
-            #         print(i[2])
-            #     input()
-            # print(ret_index[threadn][-1])
-            # print(ret_index)
-            # print(int(ret_index[threadn][-1])-1)
-            # print(bigger)
-            #
-            # input()
+
             bigger[threadn][int(ret_index[threadn][-1])-1]['retvar'] = retvar
             if(funcname == 'RegisterClassW' ):
                 www = 'www'
@@ -172,228 +248,135 @@ def readPeefF(funcglobe,f1="/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/sc
                 for i in bigger[threadn]:
                     print(i[2])
                 input()
+        print()
+        for i in bigger['0009']:
+            print(i['nameshow'] +' ' +str(i['pid']))
+        input()
+        print()
 
-    for i in allthread.keys():
-        print(i)
-        print(allthread[i])
-        # bigbigText[i] = dict()
-        # bigbigText[i]['rows'] = bigger[i][0:1000]
-        # bigbigText[i]['total'] = len(bigbigText[i]['rows'])
+
 
     print(bigger['0009'][0:5])
     input()
 
     pd.to_pickle(bigger['0009'],"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_notfix_d0009.pkl")
-    # pd.to_pickle(bigger,"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_bigger_whole.pkl")
 
-    # pd.to_pickle(allthread,"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_allthread.pkl")
+def takePal(not_list,ed_list):
+    a = 0
+    b = 0
+    pals = []
+    a_len = len(not_list)
+    b_len = len(ed_list)
+    # input()
+    while(1):
+        if(a == a_len or b == b_len):
+            break
 
-    # pd.to_pickle(bigbigText['001b'],"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_bigbigText1.pkl")
-
-
-    # return bigger
-    # f = open('/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/bigger_2.txt', 'w')
-    # for i in bigger['001b']:
-    #     f.write(str(i))
-    #     f.write('\n')
-    # f.close()
-
-
-
-
-    #
-    # for j in allthread.keys():
-    #
-    #     for i in tqdm(bigger[j]):
-    #         t = BigText()
-    #         t.group = i['group']
-    #         t.file = i['file']
-    #         t.threadn = i['threadn']
-    #         t.inputval  = i['inputval']
-    #         t.retval  = i['retvar']
-    #         t.inputtype  = i['inputtype']
-    #         t.rettype  = i['rettype']
-    #         t.nameshow  = i['nameshow']
-    #         t.childnum   = i['childnum']
-    #         t.id  = int(i['id'])
-    #         t.pid = int(i['pid'])
-    #         t.save()
-
-        # print(bigger)
-
-
-#
-def retFilterFunc():
-    f = open("/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/strip_funcname.txt")
-    lines = f.readlines()
-    info = []
-    alldlls = dict()
-    for i in lines:
-        funcname = i.split()[0]
-        dllname = i.split()[1]
-        # print(funcname,dllname)
-        if dllname not in alldlls.keys():
-            alldlls[dllname] = []
-
-        alldlls[dllname].append(funcname)
-        # info.append(funcname)
-
-    return alldlls
-
-
-def retFuncinfo():
-    f = open("/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/strip_funcname.txt")
-    lines = f.readlines()
-    alldlls = dict()
-    func_info = dict()
-    for i in lines:
-        funcname = i.split()[0]
-        dllname = i.split()[1]
-        # print(funcname,dllname)
-        if dllname not in alldlls.keys():
-            alldlls[dllname] = []
-
-        alldlls[dllname].append(funcname)
-
-        result = ClangWineFunc.objects.filter(func_name=funcname)
-        result2 = Funcgroup.objects.filter(funcname=funcname)
-        arr = ["","","",""]
-        # print('3')
-        if(len(result) != 1):
-            print("wrong1")
-            # print(funcname)
-            # input()
-
-        else:
-            for i in result:
-                m = i.file_name
-                c = m.split('_')
-                d = "/".join(c)
-                arr = [i.var_type, i.ret_type, 'dlls/'+d+'.c',""]
-            # print(arr)
-        # print('4')
-        # if(funcname == 'CreateFontIndirectW'):
-        #     www = 'www'
-        if (len(result2) != 1):
-            if(len(result2) == 0):
-                funcnew = funcname[:-1]
-                result2 = Funcgroup.objects.filter(funcname=funcnew)
-                if(len(result2) != 1):
-                    print("wrong3")
-                    # print(funcname)
-                    # input()
+        a_name = not_list[a].nameshow
+        b_name = ed_list[b].nameshow
+        if(a_name == b_name):
+            pals.append({'1':not_list[a].id,'2':ed_list[b].id,'3':1})
+            if(not_list[a].retval in ed_list[b].retval ):
+                pals[-1]['3'] = 0
             else:
-                print("wrong4")
-                # print(funcname)
-                # input()
-        if (len(result2) == 1):
-            for i in result2:
-                if(i.group0 != None):
-                    arr[3] = i.group0
-                if (i.group1 != None):
-                    arr[3] += '/'+i.group1
-                if (i.group2 != None):
-                    arr[3] += '/' + i.group2
-                if (i.group3 != None):
-                    arr[3] += '/' + i.group3
-                if (i.group4 != None):
-                    arr[3] += '/' + i.group4
-                if (i.group5 != None):
-                    arr[3] += '/' + i.group5
-
-                # print(arr)
-                # input()
-        # print('5')
+                print(not_list[a].retval)
+                print(ed_list[b].retval)
+                print("ret val not even")
+                printit(not_list[a])
+                print("\n ")
+                printit(ed_list[b])
+                input()
 
 
-        func_info[funcname] = arr
+            # print(str(a)+'/'+str(a_len)+"  "+str(b)+'/'+str(b_len))
+            a = a+1
+            b = b+1
+        else:
+
+            #TODO: 所有父亲processn 变成 1000
+            # print(a_name +" "+b_name)
+            # printit(not_list[a] )
+            # print("\n " )
+            # printit(ed_list[b])
+            # print("not even")
+            # input()
+            b = b+1
+
+    return pals
+
+
+'''
+gdi32.GetStockObject 0
+gdi32.CreatePalette 0
+gdi32.CreateBitmap 0
+gdi32.CreateFontIndirectW 0
+gdi32.CreateFontIndirectW 0
+gdi32.CreateFontIndirectW 0
+gdi32.TranslateCharsetInfo 0
+gdi32.CreateFontIndirectW 0
+
+'''
+
+def findIt(not_root,ed_root):
+    # print(not_root.count())
+    # print(ed_root.count())
+    # input()
+
+    pals = takePal(not_root, ed_root)
+    for i in pals:
+        not_roott = originaltext.objects.filter(threadn=not_thread, pid=i['1'])
+        ed_roott = BigBigtext.objects.filter(threadn=ed_thread, pid=i['2'])
+        if(not_root.count() == 0):
+            return
+        else:
+            findIt(not_roott,ed_roott)
+
+
+def main():
+
+
+    not_root = originaltext.objects.filter(threadn=not_thread,pid = 0)
+    ed_root = BigBigtext.objects.filter(threadn=ed_thread,pid = 0)
+
+    # ed_root[0].r
+    # ed_root = BigBigtext.objects.filter()
+    # not_root = BigBigtext.objects.filter()
+
+    print(not_root.count())
+    print(ed_root.count())
+    index = 0
+    pals = takePal(not_root, ed_root)
+
+    for i in tqdm(pals):
+
+
+        not_roott = originaltext.objects.filter(threadn=not_thread, pid=i['1'])
+        ed_roott = BigBigtext.objects.filter(threadn=ed_thread, pid=i['2'])
+        # print(not_roott.count())
+        # print(ed_roott.count())
+        if (not_roott.count() == 0):
+            continue
+        else:
+            index = index + 1
+            print("Index" + str(index))
+            # input()
+            findIt(not_roott, ed_roott)
 
 
 
-    return func_info
+        # for i in ed_root:
+        #     print(i.nameshow+str(i.id))
+        #     input()
 
+    print(ed_root[0].pid)
+    print(not_root[0].pid)
 
-def makedb():
-    # bigger = pd.read_pickle("/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_bigger_whole.pkl")
-    bigger = pd.read_pickle(  "/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_notfix_d0009.pkl")
-
-    # allthread = pd.read_pickle("/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_allthread.pkl")
-
-    # pd.to_pickle(bigbigText['001b'],"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/monitor_bigbigText1.pkl")
-
-
-    # return bigger
-    # f = open('/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/bigger_2.txt', 'w')
-    # for i in bigger['001b']:
-    #     f.write(str(i))
-    #     f.write('\n')
-    # f.close()
-
-
-
-
-    #
-    # for j in allthread.keys():
-
-    for i in tqdm(bigger):
-
-        t = originaltext()
-        t.processn = '0000'
-        t.group = i['group']
-        t.file = i['file']
-        t.threadn = i['threadn']
-
-        # t.threadn = '0000'
-        t.inputval  = i['inputval']
-        t.retval  = i['retvar']
-        t.inputtype  = i['inputtype']
-        t.rettype  = i['rettype']
-        t.nameshow  = i['nameshow']
-        t.childnum   = i['childnum']
-        t.id  = int(i['id'])
-        t.pid = int(i['pid'])
-        t.linenum = int(i['linenum'])
-
-        t.save()
-
-            # if (i['id'] == 2):
-            #     print(i)
-            #     input()
-
-        # print(bigger)
+def getTheChild(id):
+    not_roott = originaltext.objects.filter(threadn=not_thread, pid=i['1'])
 
 
 if __name__ == '__main__':
-    # m,funcglobe = retFilterFunc()
-    # print(funcglobe)
-
+    main()
     funcglobe = ['IsTextUnicode', 'InitCommonControlsEx', 'PrivateExtractIconsW', 'ImageList_CoCreateInstance', 'CreateFontIndirectW', 'GetDeviceCaps', 'CreatePatternBrush', 'CreateSolidBrush', 'GetStockObject', 'CreateRectRgn', 'CreateICA', 'CreateCompatibleDC', 'CreateDCA', 'CreateCompatibleBitmap', 'GetDIBits', 'DeleteObject', 'TranslateCharsetInfo', 'CreatePalette', 'SelectPalette', 'GetObjectW', 'GetCurrentObject', 'CreateDIBitmap', 'SelectObject', 'SetStretchBltMode', 'SetBkColor', 'SetTextColor', 'GetDIBColorTable', 'StretchDIBits', 'CreateBitmap', 'BitBlt', 'DeleteDC', 'GetTextMetricsW', 'CreateRoundRectRgn', 'GetViewportExtEx', 'GetWindowExtEx', 'GetLayout', 'GetGlyphIndicesW', 'GetTextAlign', 'GetTextCharsetInfo', 'GetClipRgn', 'IntersectClipRect', 'GetMapMode', 'GetObjectType', 'GetObjectA', 'GetOutlineTextMetricsW', 'GetFontData', 'GetTextFaceW', 'ExtSelectClipRgn', 'CreateDIBSection', 'SetDIBits', 'SaveDC', 'GetClipBox', 'CreateRectRgnIndirect', 'ExtTextOutW', 'SetBkMode', 'GetCurrentPositionEx', 'GetBkMode', 'SetTextAlign', 'MoveToEx', 'SelectClipRgn', 'CombineRgn', 'LPtoDP', 'GetRandomRgn', 'GetRegionData', 'GetViewportOrgEx', 'SetICMMode', 'SetMapMode', 'SetViewportOrgEx', 'SetWindowOrgEx', 'SetROP2', 'ModifyWorldTransform', 'GetDCOrgEx', 'StretchBlt', 'RestoreDC', 'GetTextExtentPoint32W', 'TextOutW', 'GetBitmapBits', 'SetBitmapBits', 'CreateICW', 'EnumFontFamiliesExW', 'GetOutlineTextMetricsA', 'Rectangle', 'SetDIBitsToDevice', 'GetTextCharacterExtra', 'CreateFontA', 'RoundRect', 'ExcludeClipRect', 'PatBlt', 'GetPixel', 'GetEnhMetaFileW', 'GetBitmapDimensionEx', 'RealizePalette', 'GdiplusStartup', 'GdipLoadImageFromStream', 'GdipCreateBitmapFromStream', 'GdipGetImagePixelFormat', 'GdipGetImageHeight', 'GdipGetImageWidth', 'GdipBitmapLockBits', 'GdipBitmapUnlockBits', 'GdipDisposeImage', 'GdipCreateBitmapFromScan0', 'GdipGetImageGraphicsContext', 'GdipCreateSolidFill', 'GdipDrawImageRectI', 'GdipDeleteBrush', 'GdipDeleteGraphics', 'GdipCreateFromHDC', 'GdipGetPropertyItemSize', 'GetForegroundWindow', 'GdipSetInterpolationMode', 'GdipCreatePen1', 'GdipDrawRectangleI', 'GdipFillRectangleI', 'GdipCreateFontFromLogfontW', 'GdipDrawString', 'GdipDeleteFont', 'GdipDrawLineI', 'GdipCreateBitmapFromHBITMAP', 'GdipGetImageEncodersSize', 'GdipGetImageEncoders', 'GdipSaveImageToFile', 'GdipCreateBitmapFromFileICM', 'GdipDrawImageRectRectI', 'ImmGetConversionStatus', 'ImmGetContext', 'ImmGetDefaultIMEWnd', 'ImmSetCompositionWindow', 'ImmSetCompositionFontW', 'ImmReleaseContext', 'ImmNotifyIME', 'ImmEnumInputContext', 'GlobalAddAtomW', 'FindAtomW', 'GetThreadPreferredUILanguages', 'GlobalFindAtomW', 'GlobalGetAtomNameW', 'GlobalDeleteAtom', 'FindAtomA', 'GetTimeFormatW', 'GetACP', 'GetCPInfo', 'LCMapStringW', 'GetFileVersionInfoSizeW', 'GetFileVersionInfoW', 'VerQueryValueW', 'CompareStringW', 'IsDBCSLeadByte', 'CharPrevA', 'CharNextA', 'LCMapStringEx', 'GetThreadLocale', 'lstrcmpiA', 'CompareStringOrdinal', 'GetLocaleInfoEx', 'GetSystemDefaultLCID', 'FindResourceW', 'LoadResource', 'SizeofResource', 'LockResource', 'lstrcmpA', 'GetLocaleInfoW', 'CompareStringA', 'CharLowerA', 'lstrcmpW', 'CharPrevW', 'GetSystemDefaultUILanguage', 'GetUserDefaultLCID', 'ConvertDefaultLocale', 'IsValidLocale', 'CharUpperW', 'GetUserDefaultLocaleName', 'GetUserDefaultLangID', 'GetSystemDefaultLangID', 'CharLowerW', 'FreeResource', 'GetUserDefaultUILanguage', 'GetThreadUILanguage', 'EnumResourceNamesExW', 'GetCPInfoExW', 'GetOEMCP', 'RegisterClassW', 'CreateWindowExW', 'GetGUIThreadInfo', 'IsProcessDPIAware', 'GetDC', 'ReleaseDC', 'GetWindowDC', 'IsWindow', 'GetPropW', 'DefWindowProcW', 'GetClassLongW', 'GetWindowLongW', 'SetPropW', 'RegisterWindowMessageW', 'DestroyWindow', 'RemovePropW', 'UnregisterClassW', 'RegisterWindowMessageA', 'SetWindowsHookExW', 'RegisterClassA', 'RegisterClipboardFormatW', 'RegisterClassExW', 'EnumDisplayMonitors', 'GetMonitorInfoA', 'EnumDisplayDevicesA', 'SetTimer', 'CreateWindowExA', 'ChangeWindowMessageFilter', 'DefWindowProcA', 'LoadIconW', 'LoadCursorW', 'GetClassInfoW', 'SetWindowLongW', 'FindResourceExW', 'CallWindowProcW', 'DwmSetWindowAttribute', 'GetClientRect', 'SetWindowPos', 'IsIconic', 'GetKeyboardLayout', 'ChangeWindowMessageFilterEx', 'LoadStringW', 'SetWinEventHook', 'GetWindowThreadProcessId', 'GetFocus', 'SendMessageW', 'KillTimer', 'PostThreadMessageW', 'RegisterTouchWindow', 'GetWindowRect', 'OffsetRect', 'SetWindowRgn', 'GetWindow', 'InvalidateRect', 'MonitorFromWindow', 'GetMonitorInfoW', 'IsRectEmpty', 'IntersectRect', 'DrawTextW', 'SetProcessDPIAware', 'GetWindowRgnBox', 'GetClassNameW', 'GetAncestor', 'MapWindowPoints', 'PostMessageW', 'InternalGetWindowText', 'GetWindowTextW', 'GetWindowInfo', 'IsZoomed', 'SetRectEmpty', 'InflateRect', 'SetRect', 'SendMessageTimeoutW', 'GetTitleBarInfo', 'EnumChildWindows', 'EnumDisplaySettingsW', 'EnumDisplayDevicesW', 'GetQueueStatus', 'PeekMessageW', 'TranslateMessage', 'DispatchMessageW', 'CallMsgFilterW', 'GetParent', 'LoadImageW', 'ShowWindow', 'SetForegroundWindow', 'IsHungAppWindow', 'GetMessageW', 'ScreenToClient', 'GetCursorPos', 'PtInRect', 'GetKeyState', 'SetCursor', 'TrackMouseEvent', 'GetUpdateRect', 'BeginPaint', 'EndPaint', 'EqualRect', 'UpdateLayeredWindow', 'GetIconInfo', 'DestroyIcon', 'SetFocus', 'SetCapture', 'ReleaseCapture', 'GetClassNameA', 'GetShellWindow', 'SendNotifyMessageW', 'MonitorFromRect', 'DrawIconEx', 'CopyImage', 'GetDoubleClickTime', 'GetKeyboardLayoutList', 'RegisterClipboardFormatA', 'HideCaret', 'IsWindowVisible', 'SetLayeredWindowAttributes', 'RegisterHotKey', 'FindWindowW', 'InSendMessageEx', 'IsTouchWindow', 'UnregisterTouchWindow', 'wvsprintfW', 'GetMessageExtraInfo', 'ShowCaret', 'UpdateWindow', 'CreateCaret', 'SetCaretPos', 'GetCaretPos', 'ClientToScreen', 'GetAsyncKeyState', 'ValidateRect', 'DestroyCaret', 'GetDesktopWindow', 'FindWindowA', 'FindWindowExA', 'FillRect', 'GetDCEx', 'BringWindowToTop', 'SwitchToThisWindow', 'WindowFromPoint', 'wsprintfW', 'OpenClipboard', 'EmptyClipboard', 'SetClipboardData', 'CloseClipboard', 'PostMessageA', 'EnumThreadWindows', 'GetActiveWindow', 'GetClipboardData', 'MonitorFromPoint', 'UnregisterHotKey', 'PostQuitMessage', 'UnhookWindowsHookEx', 'UnregisterClassA', 'UnhookWinEvent', 'GetClassInfoExW']
-    # readPeefF(funcglobe,"/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/test_monitor.txt")
+    #
     # readPeefF(funcglobe)
-
-    # readPeefF(funcglobe)
-
-    makedb()
-
-    # a = '19'
-    # b = int(a)
-    # print(b+3)
-
-    # funcglobe = ['a','b','c','d']
-    # print(funcglobe.reverse())
-    # print(funcglobe)
-
-
-
-
-
-    # print(funcglobe[])
-    # print(funcglobe[int((len(funcglobe)+1)/2):])
-
-
-
-    # f = open('/Users/bertie/PycharmProjects/PeekPeek/PeekF/data/bigger.txt','w')
-
-    # for i in bigger:
-    #     f.write(i[2]+'\n')
-    # f.close()
