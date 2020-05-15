@@ -50,7 +50,6 @@ class BigBigtext(models.Model):
     childnum = models.CharField(max_length=10, blank=True, null=True)
     threadn = models.CharField(max_length=10)
     processn = models.CharField(max_length=10)
-
     nameshow = models.CharField(max_length=100, blank=True, null=True)
     inputval = models.CharField(max_length=2000, blank=True, null=True)
     retval = models.CharField(max_length=2000, blank=True, null=True)
@@ -91,3 +90,32 @@ class Funcgroup(models.Model):
         managed = False
         db_table = 'funcgroup'
         unique_together = (('funcname', 'dllname'),)
+
+class KeyTrace(models.Model):
+    id = models.IntegerField(primary_key=True)
+    pid = models.IntegerField()
+    nameshow = models.CharField(max_length=100, blank=True, null=True)
+    inputval = models.CharField(max_length=2000, blank=True, null=True)
+    retval = models.CharField(max_length=2000, blank=True, null=True)
+
+class PalPals(models.Model):
+    index = models.IntegerField(primary_key=True)
+    id = models.IntegerField()
+    palsnum = models.IntegerField()
+    state = models.IntegerField()
+    nameshow2 = models.CharField(max_length=100, blank=True, null=True)
+    inputval2 = models.CharField(max_length=2000, blank=True, null=True)
+    retval2 = models.CharField(max_length=2000, blank=True, null=True)
+class PalPals2(models.Model):
+    index = models.IntegerField(primary_key=True)
+    id = models.IntegerField()
+    palsnum = models.IntegerField()
+    state = models.IntegerField()
+    nameshow2 = models.CharField(max_length=100, blank=True, null=True)
+    inputval2 = models.CharField(max_length=2000, blank=True, null=True)
+    retval2 = models.CharField(max_length=2000, blank=True, null=True)
+
+class ProcessInfo(models.Model):
+    id = models.IntegerField(primary_key=True)
+    time = models.DateTimeField()
+    app_name = models.CharField(max_length=100, blank=True, null=True)

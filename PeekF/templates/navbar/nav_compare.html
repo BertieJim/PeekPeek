@@ -10,29 +10,47 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>PeekF: Peek for Wine</title>
-
     <!-- Bootstrap core CSS -->
-    <link href="../static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-          <link href="../static/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/PeekF/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+{#      <link href="/PeekF/static/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">#}
+{#      <link rel="stylesheet" href="/PeekF/static/bootstrap/dist/css/bootstrap-theme.min.css">#}
 
+{#  <link rel="stylesheet" href="/PeekF/static/bootstrap/dist/css/bootstrap-editable.css">#}
+    <link rel="stylesheet" href="/PeekF/static/bootstrap/dist/css/bootstrap-table.min.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../static/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+{#    <link href="/PeekF/static/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">#}
+      <link href="/PeekF/static/bootstrap/dist/css/jquery.treegrid.min.css" rel="stylesheet">
+
+{#      <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-treegrid/0.2.0/css/jquery.treegrid.min.css">#}
+
 
     <!-- Custom styles for this template -->
-    <link href="../static/bootstrap/navbar.css" rel="stylesheet">
-      <link href="../static/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/PeekF/static/bootstrap/navbar.css" rel="stylesheet">
 
-{#    <link href="../static/bootstrap/sticky-footer.css" rel="stylesheet">#}
+{#    <link href="/PeekF/static/bootstrap/sticky-footer.css" rel="stylesheet">#}
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
+{#    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->#}
+{#    <script src="/PeekF/static/bootstrap/assets/js/ie-emulation-modes-warning.js"></script>#}
+
+      <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"></script>
+{#      <script src="/PeekF/static/bootstrap/dist/js/bootstrap-editable.min.js"></script>#}
+    <script src="/PeekF/static/bootstrap/dist/js/bootstrap-table.js"></script>
+      <script src="/PeekF/static/bootstrap/assets/js/jquery.treegrid.min.js"></script>
+
+
+      <script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+{#    <script src="/PeekF/static/bootstrap/assets/js/vendor/bootstrap-table-treegrid.js"></script>#}
+{#      <script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"></script>#}
+{#      <script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>#}
+
+    <!-- JavaScript -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+{#      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>#}
+{#      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>#}
     <![endif]-->
   </head>
 
@@ -81,17 +99,19 @@
     <div class="container">
         <div class="blog-post">
 
-        <li style="font-size:18px; margin-bottom: 20px;color: #555; ">上传配置文件</li>
+        <li style="font-size:18px; margin-bottom: 20px;color: #555; ">上传关键序列文件</li>
         </div>
         <div class="form-group">
 
 
-           <div class="col-sm-3" style="float:left">
-               <div class="input-group" style="float: left">
+           <div class="col-sm-4" style="float:left">
+               <div  class="input-group" style="float: left">
                <input id='location' class="form-control" style="float: left" onclick="$('#i-file').click();">
                    <label class="input-group-btn">
                        <input type="button" id="i-check" style="float:left;" value="浏览文件" class="btn btn-primary" onclick="$('#i-file').click();">
-                       <input type="button" id="myAlert" style="margin-left:10px;" value="确认配置" class="btn btn-primary">
+                       <input type="button" id="myAlert" style="margin-left:10px;" value="确认上传" class="btn btn-primary">
+                       <input type="button" id="myAlert2" style="margin-left:10px;" value="进行匹配" class="btn btn-primary">
+
                        <script type="text/javascript">
                         $(function(){
                             $("#myAlert").bind('closed.bs.alert', function () {
@@ -101,77 +121,262 @@
                         </script>
 
                    </label>
+
                </div>
+               <h5 style="float:left; color:#808080">上传成功！可进行匹配</h5>
+
             </div>
             <input type="file" name="file" id='i-file'  accept=".txt, .conf" onchange="$('#location').val($('#i-file').val());" style="display: none">
          </div>
+
     </div>
-    <div class="container" style="margin-top: 30px">
-
-
+    <div class="container">
         <div class="blog-post">
 
-        <li style="font-size:18px; margin-bottom: 20px;color: #555; ">进行手动配置
-                    <input type="button" id="myAlert" style="margin-left:10px;" value="确认配置" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">⚠️配置成功</h4>
-                        </div>
-                        <div class="modal-body">配置成功，请直接运行Wine程序。</div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-</div>
-                       </li>
+        <li style="font-size:18px; margin-bottom: 20px;color: #555; ">匹配结果</li>
         </div>
-        <div style="margin-left:20px">
-        {% load my_base %}
-            {%for dllname,funcname in dllandallfuncs.items %}
-            <div style="float: left">
-        <select class="selectpicker" multiple data-live-search="true" title={{ dllname.0 }} >
-            {% for i in funcname %}
-            <option >{{ i }}</option>
-            {%endfor%}
-        </select>
-            </div><p style="float: left; margin-bottom: 20px;color: #0f0f0f;size: 40px ">&nbsp;&nbsp;&nbsp;{{ dllname.1}}</p>
-        <br>
-                    <br>
+         <div class="container">
+                <ul class="nav nav-tabs" role="tablist">
 
 
+             <li role="presentation" data-id="tabContent11" ><a href="#"><span class="badge pull-right"> 9 </span>结果1&nbsp</a></li>
 
-        {%endfor%}
+                </ul>
+
+         </div>
+         <div class="fixed-table-header" style="margin-right: 20px;margin-left: 20px;">
+
+            <table id="table"
+                   data-toolbar=".toolbar"
+                   data-height="800"
+
+
+            >
+            </table>
+
+
+            <br/>
         </div>
-
     </div>
 
 
-    </div> <!-- /container -->
-
-     <footer style="background-color: #f5f5f5;bottom:0;width: 100%;height: 60px;" >
-      <div class="container" >
-          <br>
-        <p class="text-muted">遇到问题，请联系作者:joey_b@126.com</p>
-      </div>
-    </footer>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
 
 
 
-    <script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="../static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="../static/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js"></script>
+
+
+     <script src="/PeekF/static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>#}
+{#    <script>window.jQuery || document.write('<script src="/PeekF/static/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>#}
+    <script src="/PeekF/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/PeekF/static/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/PeekF/static/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
+
+  <script type="text/javascript">
+      $('.nav-tabs li').click(function(){
+    　$(this). addClass('active').siblings().removeClass('active');
+   　　var _id = $(this).attr('data-id');
+{#　　  $('.tabs-contents').find('#'+_id).addClass('active').siblings().removeClass('active');#}
+
+　　
+});
+
+  </script>
+  <script type="text/javascript">
+        var $table = $('#table');
+        $table.bootstrapTable('destroy').bootstrapTable({
+{#                data: data,#}
+                url: '/PeekF/nav/nav_compare_deal',         //请求后台的URL（*）
+                method: 'get',
+{#                idField: 'id',#}
+                dataType: 'json',
+                 toolbar: '#toolbar',
+{#            striped: true,#}
+                pagination: true,// 是否显示分页
+                pageSize: 300,
+                pageNumber:1,
+                pageList: [100, 200,300],
+                sidePagination: "server",
+            uniqueId:"id",
+{#                showToggle: true,                    //是否显示详细视图和列表视图的切换按钮#}
+{#                cardView: true,#}
+// nameshow inputval retval inputtype rettype group file childnum  id pid
+                queryParams: function (params) {
+                            //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                            var query_params = '';
+                            query_params = {
+                                rows: params.limit,                         //页面大小
+                                page: (params.offset / params.limit) + 1,   //页码
+
+                                //查询框中的参数传递给后台
+                                search_kw: $('#search-keyword').val() ,// 请求时向服务端传递的参数
+                                threadn:'0009'
+                            };
+                            return query_params;
+                        },
+
+                columns: [
+
+                    {
+                        field: 'nameshow',
+                        title: '动态链接库.函数',
+                        formatter: function (value, row, index) {
+
+                            a = '<span class="badge pull-right">'+ row.palsnum +'</span>' + value;
+                            return a;
+                        },
+                        width: 300
+                    },
+
+                    {
+                        field: 'id',
+                        title: '序号',
+                        width: 70
+                    },
+
+                    {
+                        field: 'inputval',
+                        title: '调用参数',
+                        width: 100,
+
+                         formatter: function (value, row, index) {
+                            a = '<div style="width: 100px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + '<a href="#" data-toggle="popover" data-title="参数类型" data-content="'+row.inputtype+'" data-placement="bottom" >' + value + '</a>'
+                             + '</span></div><script>\n' +
+                                '        $(function () {\n' +
+                                '            $("[data-toggle=\'popover\']").popover();\n' +
+                                '        });\n' +
+                                '    <\/script>';
+
+                            return a;
+                        }
+
+                    },
+
+
+                    {
+                        field: 'retvar',
+                        title: '返回值',
+                        width: 100,
+                        formatter: function (value, row, index) {
+
+                            a = '<div style="width: 100px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + '<a href="#" data-toggle="popover" data-title="返回值类型" data-content="' + row.rettype + '" data-placement="bottom" >&nbsp&nbsp' + value + '</a>'
+                                + '</span></div><script>\n' +
+                                '        $(function () {\n' +
+                                '            $("[data-toggle=\'popover\']").popover();\n' +
+                                '        });\n' +
+                                '    <\/script>';
+
+                            return a;
+                        }
+
+                    },
+                    {
+                        field: 'nameshow2',
+                        title: '动态链接库.函数',
+                        width: 300
+
+                    },
+
+
+                    {
+                        field: 'inputvar2',
+                        title: '调用参数',
+                        width: 100,
+
+                         formatter: function (value, row, index) {
+                            a = '<div style="width: 100px;margin-top: 0;margin-bottom: 0;margin-right:0;' +
+                                'white-space: nowrap;overflow: auto;-webkit-overflow-scrolling:touch;">' +
+                                '<span @click="clickcolumnClass($event)" class="columnClass active" >' + '<a href="#" data-toggle="popover" data-title="参数类型" data-content="'+row.inputtype+'" data-placement="bottom" >' + value + '</a>'
+                             + '</span></div><script>\n' +
+                                '        $(function () {\n' +
+                                '            $("[data-toggle=\'popover\']").popover();\n' +
+                                '        });\n' +
+                                '    <\/script>';
+
+                            return a;
+                        }
+
+                    },
+
+
+                    {
+                        field: 'retval2',
+                        title: '返回值',
+                        width: 100,
+                        formatter: function (value, row, index) {
+                            var a = "";
+                            if(row.state == 1 ){
+                                a = '<span style="color:#FF0000">'+value+'</span>';
+
+                            }
+                            else if(row.state == 0 ){
+                                a = value
+                            }
+                            else{
+                                a = value
+                            }
+                            return a;
+                        }
+
+                    },
+
+                ],
+{#                theadClasses: "thead-blue",//设置thead-blue为表头样式#}
+                //在哪一列展开树形
+                treeShowField: 'nameshow',
+                //指定父id列
+                parentIdField: 'pid',
+
+
+
+                onResetView: function(data) {
+                    //console.log('load');
+                    $table.treegrid({
+                        initialState: 'collapsed', // 所有节点都折叠
+                        //initialState: 'expanded',// 所有节点都展开，默认展开
+                        treeColumn: 0,
+                        // expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+{#                        expanderCollapsedClass: 'glyphicon glyphicon-plus',#}
+                        onChange: function() {
+                            $table.bootstrapTable('resetWidth');
+                        }
+
+                    });
+                    //只展开树形的第一级节点
+                    $table.treegrid('getRootNodes').treegrid('expand');
+
+
+                }
+            });
+
+        // 搜索查询按钮触发事件
+                $(function() {
+                    $("#search-button").click(function () {
+                        $('#table').bootstrapTable(('refresh')); // 很重要的一步，刷新url！
+                        $('#search-keyword').val()
+                    })
+                });
+
+                //重置搜索条件
+                function clean(){
+                    //先清空
+                    $('#search-keyword').val('');
+                    //清空后查询条件为空了，再次刷新页面，就是全部数据了
+                    $('#table').bootstrapTable(('refresh')); // 很重要的一步，刷新url！
+                }
+
+    </script>
+
+
 </html>

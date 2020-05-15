@@ -39,6 +39,8 @@ urlpatterns = [
 
 
     path('nav/nav_compare', views.tab_Compare),
+    path('nav/nav_compare_deal', views.tab_Compare_deal, name='nav_monitor_deal'),
+
     path('nav/nav_vis', views.tab_Vis),
     path('nav/nav_vis_anay', views.tab_Vis2)
 
